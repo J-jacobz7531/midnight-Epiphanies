@@ -1,0 +1,5 @@
+{
+  "name": "iGravity Clone",
+  "description": "A responsive clone of the iGravity website, a firm focused on impact investment management and advisory, built with React and Tailwind CSS.",
+  "requestFramePermissions": []
+}
