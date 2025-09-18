@@ -19,8 +19,8 @@ const navItems = [
       { name: 'Products', href: '/products' }
     ] },
 
-  { name: 'Impact', href: '#' },
-  { name: 'News', href: '#' },
+  { name: 'Impact', href: '/impact' },
+  { name: 'News', href: '/news' },
   { name: 'Contact', href: '#' },
   { name: 'Careers', href: '#' },
 ];
@@ -82,9 +82,15 @@ const Header: React.FC = () => {
                                     </div>
                                 </div>
                             ) : (
-                                <a key={item.name} href={item.href} className="text-white font-medium text-sm tracking-tight opacity-75 hover:opacity-100 transition-opacity uppercase font-sans">
-                                    {item.name}
-                                </a>
+                                item.href.startsWith('/') ? (
+                                    <Link key={item.name} to={item.href} className="text-white font-medium text-sm tracking-tight opacity-75 hover:opacity-100 transition-opacity uppercase font-sans">
+                                        {item.name}
+                                    </Link>
+                                ) : (
+                                    <a key={item.name} href={item.href} className="text-white font-medium text-sm tracking-tight opacity-75 hover:opacity-100 transition-opacity uppercase font-sans">
+                                        {item.name}
+                                    </a>
+                                )
                             )
                         ))}
                     </nav>
