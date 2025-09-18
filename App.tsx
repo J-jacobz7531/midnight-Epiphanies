@@ -6,6 +6,8 @@ import Home from './components/Home';
 import OurHistory from './components/OurHistory';
 import News from './components/News';
 import Impact from './components/Impact';
+import Investments from './components/Investments';
+import Products from './components/Products';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="/our-history" element={<OurHistory />} />
           <Route path="/news" element={<News />} />
           <Route path="/impact" element={<Impact />} />
+          <Route path="/investments" element={<Investments />} />
+          <Route path="/products" element={<Products />} />
         </Routes>
       </div>
     </Router>

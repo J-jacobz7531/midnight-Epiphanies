@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from './Footer';
 
 const OurHistory: React.FC = () => {
   return (
@@ -200,6 +201,7 @@ const OurHistory: React.FC = () => {
 
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

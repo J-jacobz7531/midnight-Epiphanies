@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { Post } from '../types';
 import Newsletter from './Newsletter';
+import Footer from './Footer';
 
 const postsData: Post[] = [
     { id: 1, categories: [{ name: "Investments", tag: "investments" }], title: "Why Emerging Markets Private Debt Is Key to Resilient Impact Portfolios in 2025", imageUrl: "https://igravity.net/wp-content/uploads/2025/09/EMPD-Artwork.png", excerpt: "The year 2024 served as a powerful reminder: the global financial landscape is in constant…", link: "#" },
@@ -105,6 +106,9 @@ const News: React.FC = () => {
 
       {/* Newsletter Section */}
       <Newsletter />
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

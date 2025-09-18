@@ -3,6 +3,7 @@ import AboutSection from './AboutSection';
 import FiveStepsSection from './FiveStepsSection';
 import ImpactThemesSection from './ImpactThemesSection';
 import LeveragingSection from './LeveragingSection';
+import Footer from './Footer';
 
 const ImpactHero: React.FC = () => {
   return (
@@ -39,6 +40,7 @@ const Impact: React.FC = () => {
         <ImpactThemesSection />
         <LeveragingSection />
       </main>
+      <Footer />
     </div>
   );
 };
