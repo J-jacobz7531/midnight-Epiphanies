@@ -33,8 +33,8 @@ const filters = [
 const PostCard: React.FC<{ post: Post; onPostClick: (post: Post) => void }> = ({ post, onPostClick }) => {
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    // Only handle clicks for posts with IDs 1-12
-    if (post.id >= 1 && post.id <= 12) {
+    // Handle clicks for posts with IDs 1-12 and 13 (case study)
+    if ((post.id >= 1 && post.id <= 12) || post.id === 13) {
       onPostClick(post);
     } else {
       // For other posts, you could handle differently or show a message
