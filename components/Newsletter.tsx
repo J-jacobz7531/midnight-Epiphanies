@@ -2,7 +2,7 @@ import React from 'react';
 
 const Newsletter: React.FC = () => {
   return (
-    <section className="bg-[#F2F2F0] text-[#2C3133] py-16 md:py-24 px-4 sm:px-6 lg:px-0 mx-auto relative z-10 transform -translate-y-64 md:-translate-y-96">
+    <section className="bg-[#F2F2F0] text-[#2C3133] py-16 md:py-24 px-4 sm:px-6 lg:px-0 mx-auto relative z-10 transform -translate-y-12 md:-translate-y-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: 'calc(100% - 14%)' }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div>

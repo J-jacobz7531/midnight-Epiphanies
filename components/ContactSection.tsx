@@ -1,10 +1,92 @@
 import React, { useState } from 'react';
-import { InputField, SelectField, TextAreaField } from './ContactFormFields';
+
+const InputField: React.FC<{
+  label: string;
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  error?: string;
+  type?: string;
+  required?: boolean;
+}> = ({ label, name, value, onChange, error, type = 'text', required = true }) => (
+  <div>
+    <label htmlFor={name} className="block text-sm font-medium text-brand-dark-tertiary">
+      {label}
+    </label>
+    <input
+      type={type}
+      id={name}
+      name={name}
+      value={value}
+      onChange={onChange}
+      required={required}
+      className={`mt-1 block w-full px-3 py-2 bg-transparent border-b ${error ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-0 focus:border-brand-dark-secondary transition-colors`}
+      aria-invalid={!!error}
+      aria-describedby={error ? `${name}-error` : undefined}
+    />
+    {error && <p id={`${name}-error`} className="mt-1 text-xs text-red-500">{error}</p>}
+  </div>
+);
+
+const SelectField: React.FC<{
+  label: string;
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  error?: string;
+}> = ({ label, name, value, onChange, error }) => (
+    <div>
+      <label htmlFor={name} className="block text-sm font-medium text-brand-dark-tertiary">
+        {label}
+      </label>
+      <select
+        id={name}
+        name={name}
+        value={value}
+        onChange={onChange}
+        className={`mt-1 block w-full pl-3 pr-10 py-2 bg-transparent border-b ${error ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-0 focus:border-brand-dark-secondary transition-colors`}
+        aria-invalid={!!error}
+        aria-describedby={error ? `${name}-error` : undefined}
+      >
+        <option>General Inquiry</option>
+        <option>Investments</option>
+        <option>Advisory</option>
+      </select>
+      {error && <p id={`${name}-error`} className="mt-1 text-xs text-red-500">{error}</p>}
+    </div>
+);
+
+
+const TextAreaField: React.FC<{
+    label: string;
+    name: string;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    error?: string;
+  }> = ({ label, name, value, onChange, error }) => (
+    <div>
+        <label htmlFor={name} className="block text-sm font-medium text-brand-dark-tertiary">
+            {label}
+        </label>
+        <textarea
+            id={name}
+            name={name}
+            value={value}
+            onChange={onChange}
+            rows={4}
+            className={`mt-1 block w-full px-3 py-2 bg-transparent border-b ${error ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-0 focus:border-brand-dark-secondary transition-colors`}
+            aria-invalid={!!error}
+            aria-describedby={error ? `${name}-error` : undefined}
+        />
+        {error && <p id={`${name}-error`} className="mt-1 text-xs text-red-500">{error}</p>}
+    </div>
+);
+
 
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
     firstName: '',
-    lastName: '',
+    secondName: '',
     company: '',
     email: '',
     department: 'General Inquiry',
@@ -13,7 +95,6 @@ const ContactSection: React.FC = () => {
   
   const [errors, setErrors] = useState<Partial<typeof formData>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -26,7 +107,7 @@ const ContactSection: React.FC = () => {
   const validate = () => {
     const newErrors: Partial<typeof formData> = {};
     if (!formData.firstName.trim()) newErrors.firstName = 'First Name is required.';
-    if (!formData.lastName.trim()) newErrors.lastName = 'Last Name is required.';
+    if (!formData.secondName.trim()) newErrors.secondName = 'Second Name is required.';
     if (!formData.company.trim()) newErrors.company = 'Company is required.';
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required.';
@@ -39,151 +120,63 @@ const ContactSection: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validate()) {
-      setIsSubmitting(true);
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
       console.log('Form Submitted:', formData);
       setIsSubmitted(true);
-      setIsSubmitting(false);
     }
   };
 
-  const resetForm = () => {
-    setFormData({
-      firstName: '',
-      lastName: '',
-      company: '',
-      email: '',
-      department: 'General Inquiry',
-      message: '',
-    });
-    setErrors({});
-    setIsSubmitted(false);
-  };
-
   return (
-    <div className="bg-ig-dark-2 relative z-20">
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12 -mb-40 lg:-mb-52">
-        <div
-          className="bg-ig-off-white text-ig-text-dark p-8 sm:p-12 md:p-16 lg:p-20 relative shadow-2xl"
-          style={{
-            transform: 'translateY(calc(-1 * min(20vw, 150px)))',
-            marginBottom: 'calc(-1 * min(20vw, 150px))'
-          }}
-        >
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
-            <div className="flex flex-col justify-center">
-              <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[6vh] text-ig-text-dark leading-tight mb-6">
-                Get in Touch
-              </h2>
-              <div className="space-y-6 text-ig-text-dark/80">
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">Office Address</h3>
-                  <p className="leading-relaxed">
-                    iGravity Holdings<br />
-                    Zurich, Switzerland<br />
-                    impact@igravity.com
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">Business Hours</h3>
-                  <p className="leading-relaxed">
-                    Monday - Friday: 9:00 AM - 6:00 PM CET<br />
-                    Weekend: By appointment
-                  </p>
-                </div>
-              </div>
+    <div className="bg-ig-dark text-ig-off-white pt-24 md:pt-32 pb-16">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+          
+          <div className="md:col-span-4">
+            <h2 className="font-serif text-4xl md:text-5xl font-light mb-2">Get in Touch</h2>
+            <p className="text-gray-300 font-light mb-6">Ready to make an impact? We'd love to hear from you.</p>
+            
+            <div className="text-gray-300 font-light leading-relaxed mb-6">
+              <p>For inquiries, collaborations, or more information, reach out to us:</p>
+              <a href="mailto:impact@ophelholdings.com" className="text-ig-accent-teal hover:text-white underline">impact@ophelholdings.com</a>
+              <p className="mt-2 text-sm">Zurich | Milan | Kampala | Nairobi | Bogotá</p>
             </div>
             
             <div>
-              {isSubmitted ? (
-                <div className="flex items-center justify-center h-full bg-gray-50 p-8 rounded-lg">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
-                    </div>
-                    <h3 className="text-2xl font-semibold text-ig-text-dark mb-2">Thank you!</h3>
-                    <p className="text-ig-text-dark/70 mb-6">
-                      Your message has been sent successfully. We will get back to you within 24 hours.
-                    </p>
-                    <button
-                      onClick={resetForm}
-                      className="text-ig-accent-teal hover:text-ig-accent-orange transition-colors duration-300 font-medium"
-                    >
-                      Send another message
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} noValidate className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <InputField 
-                      label="First Name" 
-                      name="firstName" 
-                      value={formData.firstName} 
-                      onChange={handleChange} 
-                      error={errors.firstName} 
-                    />
-                    <InputField 
-                      label="Last Name" 
-                      name="lastName" 
-                      value={formData.lastName} 
-                      onChange={handleChange} 
-                      error={errors.lastName} 
-                    />
-                  </div>
-                  
-                  <InputField 
-                    label="Company" 
-                    name="company" 
-                    value={formData.company} 
-                    onChange={handleChange} 
-                    error={errors.company} 
-                  />
-                  
-                  <InputField 
-                    label="Email" 
-                    name="email" 
-                    value={formData.email} 
-                    onChange={handleChange} 
-                    error={errors.email} 
-                    type="email" 
-                  />
-                  
-                  <SelectField 
-                    label="Department" 
-                    name="department" 
-                    value={formData.department} 
-                    onChange={handleChange} 
-                    error={errors.department} 
-                  />
-                  
-                  <TextAreaField 
-                    label="Your message" 
-                    name="message" 
-                    value={formData.message} 
-                    onChange={handleChange} 
-                    error={errors.message} 
-                  />
-                  
-                  <div>
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full text-center py-4 px-6 bg-ig-text-dark text-ig-off-white font-medium text-sm border-2 border-ig-accent-teal hover:bg-ig-accent-teal hover:text-ig-text-dark transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isSubmitting ? 'Sending...' : 'Submit'}
-                    </button>
-                  </div>
-                </form>
-              )}
+              <a href="https://ch.linkedin.com/company/ophelholdings" target="_blank" rel="noopener noreferrer" className="text-ig-accent-teal hover:text-white underline font-medium">LinkedIn</a>
             </div>
           </div>
+
+          <div className="md:col-span-8">
+            {isSubmitted ? (
+              <div className="flex items-center justify-center h-full bg-gray-800 p-8 rounded-lg">
+                <div className="text-center">
+                  <h3 className="text-2xl font-semibold text-ig-off-white">Thank you!</h3>
+                  <p className="mt-2 text-gray-300">Your message has been sent successfully. We will get back to you shortly.</p>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} noValidate className="space-y-6">
+                <InputField label="First Name" name="firstName" value={formData.firstName} onChange={handleChange} error={errors.firstName} />
+                <InputField label="Second Name" name="secondName" value={formData.secondName} onChange={handleChange} error={errors.secondName} />
+                <InputField label="Company" name="company" value={formData.company} onChange={handleChange} error={errors.company} />
+                <InputField label="Email" name="email" value={formData.email} onChange={handleChange} error={errors.email} type="email" />
+                <SelectField label="Department" name="department" value={formData.department} onChange={handleChange} error={errors.department} />
+                <TextAreaField label="Your message" name="message" value={formData.message} onChange={handleChange} error={errors.message} />
+                
+                <div>
+                  <button
+                    type="submit"
+                    className="w-full text-center py-3 px-6 bg-ig-accent-teal text-ig-dark font-medium text-sm hover:bg-white hover:text-ig-dark transition-colors duration-300"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+
         </div>
       </div>
     </div>

@@ -30,8 +30,20 @@ const filters = [
     { name: "Reports and Publications", tag: "reports-and-publications" },
 ];
 
-const PostCard: React.FC<{ post: Post }> = ({ post }) => (
-    <a href={post.link} className="group block">
+const PostCard: React.FC<{ post: Post; onPostClick: (post: Post) => void }> = ({ post, onPostClick }) => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // Only handle clicks for posts with IDs 1-12
+    if (post.id >= 1 && post.id <= 12) {
+      onPostClick(post);
+    } else {
+      // For other posts, you could handle differently or show a message
+      console.log('Post details not available yet');
+    }
+  };
+
+  return (
+    <a href={post.link} onClick={handleClick} className="group block cursor-pointer">
       <div className="overflow-hidden">
         <img src={post.imageUrl} alt={post.title} className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
       </div>
@@ -48,8 +60,9 @@ const PostCard: React.FC<{ post: Post }> = ({ post }) => (
       </div>
     </a>
   );
+};
 
-const NewsSection: React.FC = () => {
+const NewsSection: React.FC<{ onPostClick: (post: Post) => void }> = ({ onPostClick }) => {
     const [activeFilter, setActiveFilter] = useState<string>('all');
 
     const filteredPosts = activeFilter === 'all'
@@ -75,7 +88,7 @@ const NewsSection: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
             {filteredPosts.map(post => (
-                <PostCard key={post.id} post={post} />
+                <PostCard key={post.id} post={post} onPostClick={onPostClick} />
             ))}
         </div>
       </div>
@@ -83,7 +96,7 @@ const NewsSection: React.FC = () => {
   );
 };
 
-const News: React.FC = () => {
+const News: React.FC<{ onPostClick?: (post: Post) => void }> = ({ onPostClick = () => {} }) => {
   return (
     <div className="bg-ig-off-white min-h-screen">
       {/* Header Section */}
@@ -102,7 +115,7 @@ const News: React.FC = () => {
       </section>
 
       {/* News Section */}
-      <NewsSection />
+      <NewsSection onPostClick={onPostClick} />
 
       {/* Newsletter Section */}
       <Newsletter />

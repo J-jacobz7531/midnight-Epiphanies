@@ -4,7 +4,7 @@ const ContactHero: React.FC = () => {
   return (
     <section className="bg-ig-dark text-ig-off-white relative">
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-30"
+        className="absolute inset-0 bg-cover bg-center opacity-40"
         style={{ backgroundImage: 'url(https://picsum.photos/1600/900?grayscale)' }}
       ></div>
       <div className="absolute inset-0 bg-black opacity-30"></div>
