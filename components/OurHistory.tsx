@@ -1,209 +1,100 @@
 import React from 'react';
 import Footer from './Footer';
+import { VisionIcon, PurposeIcon, StrategyIcon } from './Icons';
 
 const OurHistory: React.FC = () => {
   return (
-    <div className="min-h-screen bg-ig-off-white text-ig-dark">
-      {/* Page Header */}
-      <div className="bg-ig-dark text-ig-off-white py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-light mb-6 tracking-tight">
-              Our History
-            </h1>
-            <p className="text-xl md:text-2xl font-light opacity-80 max-w-3xl mx-auto">
-              A journey of transformation, innovation, and impact spanning decades of dedicated service
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          
-          {/* Timeline Section */}
-          <div className="space-y-16">
-            
-            {/* Foundation Era */}
-            <div className="relative">
-              <div className="flex items-start space-x-8">
-                <div className="flex-shrink-0">
-                  <div className="w-4 h-4 bg-ig-teal rounded-full mt-2"></div>
-                </div>
-                <div className="flex-1">
-                  <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
-                    <h2 className="text-3xl font-light mb-4 text-ig-dark">The Foundation Years</h2>
-                    <p className="text-lg leading-relaxed mb-6 text-gray-700">
-                      Our story began with a simple yet powerful vision: to create meaningful change through strategic investments 
-                      and partnerships. Founded on principles of integrity, innovation, and impact, we set out to bridge the gap 
-                      between capital and purpose.
-                    </p>
-                    <p className="text-lg leading-relaxed text-gray-700">
-                      In these early years, we established our core values and built the foundation for what would become 
-                      a transformative approach to business and investment.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Growth Era */}
-            <div className="relative">
-              <div className="flex items-start space-x-8">
-                <div className="flex-shrink-0">
-                  <div className="w-4 h-4 bg-ig-teal rounded-full mt-2"></div>
-                </div>
-                <div className="flex-1">
-                  <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
-                    <h2 className="text-3xl font-light mb-4 text-ig-dark">Expansion and Growth</h2>
-                    <p className="text-lg leading-relaxed mb-6 text-gray-700">
-                      As our reputation grew, so did our reach. We expanded our portfolio across diverse sectors, 
-                      always maintaining our commitment to sustainable and responsible business practices. This period 
-                      marked significant milestones in our journey toward becoming a recognized leader in our field.
-                    </p>
-                    <p className="text-lg leading-relaxed text-gray-700">
-                      Our team grew with exceptional talent, each member bringing unique expertise and shared passion 
-                      for creating positive change through strategic business initiatives.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Innovation Era */}
-            <div className="relative">
-              <div className="flex items-start space-x-8">
-                <div className="flex-shrink-0">
-                  <div className="w-4 h-4 bg-ig-teal rounded-full mt-2"></div>
-                </div>
-                <div className="flex-1">
-                  <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
-                    <h2 className="text-3xl font-light mb-4 text-ig-dark">Innovation and Transformation</h2>
-                    <p className="text-lg leading-relaxed mb-6 text-gray-700">
-                      Embracing technological advancement and innovative thinking, we transformed our approach to meet 
-                      the evolving needs of our partners and stakeholders. This era was defined by breakthrough 
-                      initiatives and pioneering solutions that set new industry standards.
-                    </p>
-                    <p className="text-lg leading-relaxed text-gray-700">
-                      We invested heavily in research and development, fostering a culture of continuous improvement 
-                      and forward-thinking strategies that positioned us at the forefront of industry innovation.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Current Era */}
-            <div className="relative">
-              <div className="flex items-start space-x-8">
-                <div className="flex-shrink-0">
-                  <div className="w-4 h-4 bg-ig-teal rounded-full mt-2"></div>
-                </div>
-                <div className="flex-1">
-                  <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
-                    <h2 className="text-3xl font-light mb-4 text-ig-dark">Today and Beyond</h2>
-                    <p className="text-lg leading-relaxed mb-6 text-gray-700">
-                      Today, we stand as a testament to the power of vision, dedication, and strategic thinking. 
-                      Our history informs our future as we continue to evolve, adapt, and lead in an ever-changing 
-                      global landscape.
-                    </p>
-                    <p className="text-lg leading-relaxed text-gray-700">
-                      Looking ahead, we remain committed to our founding principles while embracing new opportunities 
-                      to create lasting impact and drive meaningful change across all our endeavors.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Key Milestones */}
-          <div className="mt-20 pt-16 border-t border-gray-200">
-            <h2 className="text-4xl font-light mb-12 text-center text-ig-dark">Key Milestones</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-ig-teal rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-semibold text-lg">1</span>
-                </div>
-                <h3 className="text-xl font-medium mb-3 text-ig-dark">Foundation</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Established with a clear mission to create positive impact through strategic business initiatives
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-ig-teal rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-semibold text-lg">2</span>
-                </div>
-                <h3 className="text-xl font-medium mb-3 text-ig-dark">First Major Partnership</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Secured our first significant partnership, marking the beginning of our growth trajectory
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-ig-teal rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-semibold text-lg">3</span>
-                </div>
-                <h3 className="text-xl font-medium mb-3 text-ig-dark">Global Expansion</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Extended our reach internationally, establishing presence in key global markets
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-ig-teal rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-semibold text-lg">4</span>
-                </div>
-                <h3 className="text-xl font-medium mb-3 text-ig-dark">Innovation Hub</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Launched our innovation center, fostering breakthrough solutions and technologies
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-ig-teal rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-semibold text-lg">5</span>
-                </div>
-                <h3 className="text-xl font-medium mb-3 text-ig-dark">Sustainability Focus</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Integrated comprehensive sustainability practices across all our operations and investments
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-ig-teal rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-semibold text-lg">6</span>
-                </div>
-                <h3 className="text-xl font-medium mb-3 text-ig-dark">Industry Leadership</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Recognized as industry leaders, setting new standards for responsible business practices
-                </p>
-              </div>
-
-            </div>
-          </div>
-
-          {/* Vision Statement */}
-          <div className="mt-20 pt-16 border-t border-gray-200">
-            <div className="text-center">
-              <h2 className="text-4xl font-light mb-8 text-ig-dark">Our Continuing Journey</h2>
-              <p className="text-xl leading-relaxed text-gray-700 max-w-3xl mx-auto">
-                Our history is not just a record of where we've been, but a foundation for where we're going. 
-                Each chapter of our story builds upon the last, creating a legacy of innovation, integrity, 
-                and impact that guides us toward an even brighter future.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
+    <div className="bg-[#313A3C] font-['Poppins']">
+      <main>
+        <HeroSection />
+        <StorySection />
+        <ValuesSection />
+        <SloganSection />
+      </main>
       <Footer />
     </div>
   );
 };
+
+const HeroSection: React.FC = () => (
+  <section 
+    className="relative top-0 left-0 w-full h-screen min-h-[700px] flex items-center justify-center text-white bg-[#141d21] pt-24"
+    style={{
+      paddingTop: 'calc(100vw * 0.10)',
+      paddingBottom: 'calc(100vw * 0.20)',
+    }}
+  >
+    <div 
+      className="absolute inset-0 bg-black opacity-30 z-0"
+    ></div>
+    <div className="relative z-10 w-full max-w-7xl px-8 lg:px-[5%]">
+      <div className="w-full text-left">
+        <p className="text-[#f2f2f0] font-['Poppins'] font-light">Our Mission</p>
+        <h3 className="text-3xl md:text-5xl lg:text-6xl font-['Cormorant_Garamond'] font-light text-transparent bg-clip-text bg-gradient-to-r from-[#84bfc7] to-[#faaf40] leading-tight">
+          By supporting high-impact enterprises and providing investors with access to unique opportunities, we bridge capital and purpose to create lasting change.
+        </h3>
+      </div>
+    </div>
+  </section>
+);
+
+const StorySection: React.FC = () => (
+  <section className="relative z-10 bg-[#F2F2F0] w-full py-20"> {/* Adjusted padding */}
+    <div className="max-w-[1200px] mx-auto px-6 lg:px-8"> {/* Adjusted max-width */}
+      <div className="flex flex-wrap lg:flex-nowrap items-start gap-12"> {/* Adjusted gap */}
+        <div className="w-full lg:w-1/4 mb-4 lg:mb-0">
+          <h1 className="text-[#313a3c] font-['Cormorant_Garamond'] text-[5.5vh] leading-[1.1]">Our Story</h1> {/* Adjusted font size */}
+        </div>
+        <div className="w-full lg:w-2/4 text-base font-light leading-relaxed text-[#141d21]"> {/* Adjusted width */}
+          <p className="mb-4">iGravity was born on March 15, 2017, out of a bold vision to rethink how impact investing works. Our founder, Patrick, recognized the need to challenge the status quo, where too often, promising ideas stayed siloed, partnerships felt transactional, and the true potential for impact remained untapped.</p>
+          <p className="mb-4">He believed there was a better way. A way where collaboration between the financial community and philanthropic organizations wasn't just a buzzword, but a core principle. Where capital, expertise, and purpose could come together to drive real, measurable change. From that belief, iGravity took shape—not just as a company, but as a movement.</p>
+          <p className="mb-4">Even our name reflects that ambition: a gravitational pull toward impact.</p>
+          <p>Patrick's vision remains our compass—to help build a financial system that values impact as much as returns. One where capital flows with intention, empowering high-impact enterprises in emerging markets and beyond.</p>
+        </div>
+        <div className="w-full lg:w-1/4 flex justify-center lg:justify-end mt-8 lg:mt-0"> {/* Adjusted width */}
+          <img
+            src="https://igravity.net/wp-content/uploads/2025/08/GRVTY-094-1-e1756971346550-245x300.webp"
+            alt="Founder Patrick"
+            className="w-[245px] h-auto rounded-md shadow-lg" // Added rounded corners and shadow
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const ValuesSection: React.FC = () => (
+  <section className="relative z-20 text-[#f2f2f0] lg:-mt-[200px] bg-[#313A3C]">
+    <div className="max-w-7xl mx-auto lg:py-[5%] py-12 px-8 lg:px-[10%]">
+      <div className="grid md:grid-cols-3 gap-12 text-left">
+        <div className="flex flex-col">
+          <div className="mb-4"><VisionIcon /></div>
+          <h4 className="font-['Poppins'] font-medium text-lg mb-2">Vision</h4>
+          <p className="font-['Poppins'] font-extralight text-base leading-relaxed">A future where finance and entrepreneurship fuel sustainable and equitable progress.</p>
+        </div>
+        <div className="flex flex-col">
+          <div className="mb-4"><PurposeIcon /></div>
+          <h4 className="font-['Poppins'] font-medium text-lg mb-2">Purpose</h4>
+          <p className="font-['Poppins'] font-extralight text-base leading-relaxed">To design and manage innovative finance facilities that bridge the gap between capital and impact. </p>
+        </div>
+        <div className="flex flex-col">
+          <div className="mb-4"><StrategyIcon /></div>
+          <h4 className="font-['Poppins'] font-medium text-lg mb-2">Strategy</h4>
+          <p className="font-['Poppins'] font-extralight text-base leading-relaxed">We advise entrepreneurs and organizations on sustainable business models and impact measurement. </p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const SloganSection: React.FC = () => (
+    <section className="relative z-20 bg-[#313A3C] lg:-mt-[200px] overflow-hidden">
+        <div className="w-full max-w-7xl mx-auto py-12 lg:py-20 px-8 lg:px-[10%]">
+            <h2 className="text-[#F2F2F0] font-['Cormorant_Garamond'] font-light text-[5vw] leading-[1.1] max-w-4xl" style={{ fontSize: 'min(90px, 5vw)'}}>
+                We don't just allocate capital, we make it work for people and the planet.
+            </h2>
+        </div>
+    </section>
+);
 
 export default OurHistory;

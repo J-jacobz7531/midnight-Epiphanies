@@ -8,6 +8,8 @@ import News from './components/News';
 import Impact from './components/Impact';
 import Investments from './components/Investments';
 import Products from './components/Products';
+import People from './components/People';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="/impact" element={<Impact />} />
           <Route path="/investments" element={<Investments />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/people" element={<People />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
     </Router>

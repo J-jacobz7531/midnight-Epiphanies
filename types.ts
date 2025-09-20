@@ -9,3 +9,10 @@ export interface Post {
     excerpt: string;
     link: string;
 }
+
+export interface TeamMember {
+    name: string;
+    title: string;
+    imageUrl: string;
+    bio?: string;
+}

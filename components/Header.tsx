@@ -8,7 +8,7 @@ const navItems = [
     href: '#',
     subMenu: [
       { name: 'Our History', href: '/our-history' },
-      { name: 'People', href: '#' }
+      { name: 'People', href: '/people' }
     ]
   },
 
@@ -21,7 +21,7 @@ const navItems = [
 
   { name: 'Impact', href: '/impact' },
   { name: 'News', href: '/news' },
-  { name: 'Contact', href: '#' },
+  { name: 'Contact', href: '/contact' },
   { name: 'Careers', href: '#' },
 ];
 
