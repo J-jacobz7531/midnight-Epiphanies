@@ -141,7 +141,9 @@ const PostPage: React.FC<PostPageProps> = ({ post }) => {
               <p className="font-semibold text-lg">
                 Ali Dates: Investing in Growth &amp; Employment
               </p>
-              <img src="https://igravity.net/gestionesito/ddcrm-uploads/immaginisito/Ali%20Dates%201.png" alt="Ali Dates packaging" className="w-full h-auto rounded-md" />
+              <div className="max-w-2xl mx-auto my-6">
+                <img src="https://igravity.net/gestionesito/ddcrm-uploads/immaginisito/Ali%20Dates%201.png" alt="Ali Dates packaging" className="w-full h-auto rounded-md shadow-md" />
+              </div>
               <p>
                 In Jordan's Jordan Valley, Ali Dates has built a reputation for producing premium Medjool dates while maintaining a strong social mission.
               </p>
@@ -151,7 +153,9 @@ const PostPage: React.FC<PostPageProps> = ({ post }) => {
               <p className="font-semibold text-lg">
                 Scaling with RIF: A Murabaha-Compliant Loan for Growth
               </p>
-              <img src="https://igravity.net/gestionesito/ddcrm-uploads/immaginisito/Ali%20Dates%202.png" alt="Workers at Ali Dates" className="w-full h-auto rounded-md" />
+              <div className="max-w-2xl mx-auto my-6">
+                <img src="https://igravity.net/gestionesito/ddcrm-uploads/immaginisito/Ali%20Dates%202.png" alt="Workers at Ali Dates" className="w-full h-auto rounded-md shadow-md" />
+              </div>
               <p>
                 In early 2025, the <span className="font-semibold">Refugee Investment Facility (RIF)</span> provided a Murabaha Shariah-compliant loan to Ali Dates, allowing the company to expand its operations into sorting services.
               </p>
@@ -523,25 +527,21 @@ const PostPage: React.FC<PostPageProps> = ({ post }) => {
 
   return (
     <div className="single-post">
-      <div className="bg-[#141d21] text-white">
-        <div className="container mx-auto px-6 xl:px-12 py-[5vw]">
-          <div className="text-center max-w-4xl mx-auto">
-            <h3 className="text-3xl md:text-5xl lg:text-6xl font-light leading-tight bg-gradient-to-r from-[#84bfc7] to-[#faaf40] text-transparent bg-clip-text">
-              {post.title}
-            </h3>
+      {/* Hero Image Section - Responsive sizing */}
+      <div className="py-8 md:py-12">
+        <div className="container mx-auto px-6 xl:px-12">
+          <div className="max-w-4xl mx-auto">
+            <img
+              src={post.imageUrl}
+              alt={post.title}
+              className="w-full h-auto rounded-lg shadow-lg"
+            />
           </div>
         </div>
       </div>
 
-      <div className="py-[2vw]">
-        <img
-          src={post.imageUrl}
-          alt={post.title}
-          className="w-full h-auto"
-        />
-      </div>
-
-      <div className="container mx-auto px-6 xl:px-12 py-[3vw]">
+      {/* Content Section */}
+      <div className="container mx-auto px-6 xl:px-12 py-8 md:py-12">
         <div className="max-w-3xl mx-auto">
           {postContent.content}
           
