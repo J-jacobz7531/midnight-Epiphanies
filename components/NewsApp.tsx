@@ -4,6 +4,7 @@ import Footer from './Footer';
 import News from './News';
 import PostPage from './PostPage';
 import CaseStudyESO from './CaseStudyESO';
+import CaseStudyNEF from './CaseStudyNEF';
 import type { Post } from '../types';
 
 const NewsApp: React.FC = () => {
@@ -38,6 +39,22 @@ const NewsApp: React.FC = () => {
                   </button>
                 </div>
                 <CaseStudyESO />
+              </div>
+            ) : selectedPost.id === 14 ? (
+              // Case Study NEF page - uses its own header structure
+              <div>
+                <div className="absolute top-20 left-6 lg:left-12 z-50">
+                  <button
+                    onClick={handleBackToNews}
+                    className="flex items-center text-[#84bfc7] hover:text-[#faaf40] transition-colors duration-300 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-lg"
+                  >
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                    Back to News
+                  </button>
+                </div>
+                <CaseStudyNEF />
               </div>
             ) : (
               // Regular post pages with consistent header
