@@ -31,7 +31,7 @@ const HeroSection: React.FC = () => (
       <div className="w-full text-left">
         <p className="text-[#f2f2f0] font-['Poppins'] font-light">Our Mission</p>
         <h3 className="text-3xl md:text-5xl lg:text-6xl font-['Cormorant_Garamond'] font-light text-transparent bg-clip-text bg-gradient-to-r from-[#84bfc7] to-[#faaf40] leading-tight">
-          By supporting high-impact enterprises and providing investors with access to unique opportunities, we bridge capital and purpose to create lasting change.
+        By connecting responsible sourcing with innovation, we bridge purpose and performance — turning sustainable supply chains into engines of prosperity and regeneration.
         </h3>
       </div>
     </div>
@@ -39,23 +39,25 @@ const HeroSection: React.FC = () => (
 );
 
 const StorySection: React.FC = () => (
-  <section className="relative z-10 bg-[#F2F2F0] w-full py-20"> {/* Adjusted padding */}
-    <div className="max-w-[1200px] mx-auto px-6 lg:px-8"> {/* Adjusted max-width */}
-      <div className="flex flex-wrap lg:flex-nowrap items-start gap-12"> {/* Adjusted gap */}
-        <div className="w-full lg:w-1/4 mb-4 lg:mb-0">
-          <h1 className="text-[#313a3c] font-['Cormorant_Garamond'] text-[5.5vh] leading-[1.1]">Our Story</h1> {/* Adjusted font size */}
+  <section className="relative z-10 bg-[#F2F2F0] w-full py-24 lg:py-32 pb-48 lg:pb-60">
+    <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
+        <div className="w-full lg:w-1/4 mb-8 lg:mb-0">
+          <h1 className="text-[#313a3c] font-['Cormorant_Garamond'] text-6xl lg:text-7xl leading-[0.9] font-light">Our Story</h1>
         </div>
-        <div className="w-full lg:w-2/4 text-base font-light leading-relaxed text-[#141d21]"> {/* Adjusted width */}
-          <p className="mb-4">iGravity was born on March 15, 2017, out of a bold vision to rethink how impact investing works. Our founder, Patrick, recognized the need to challenge the status quo, where too often, promising ideas stayed siloed, partnerships felt transactional, and the true potential for impact remained untapped.</p>
-          <p className="mb-4">He believed there was a better way. A way where collaboration between the financial community and philanthropic organizations wasn't just a buzzword, but a core principle. Where capital, expertise, and purpose could come together to drive real, measurable change. From that belief, iGravity took shape—not just as a company, but as a movement.</p>
-          <p className="mb-4">Even our name reflects that ambition: a gravitational pull toward impact.</p>
-          <p>Patrick's vision remains our compass—to help build a financial system that values impact as much as returns. One where capital flows with intention, empowering high-impact enterprises in emerging markets and beyond.</p>
+        <div className="w-full lg:w-2/3 text-lg font-light leading-relaxed text-[#141d21] space-y-6">
+          <p>Ophel Holdings was born from a simple yet profound idea — that sustainability should not remain an aspiration, but become a lived reality across every link of the food chain. Our founders saw a world where millions of smallholder farmers labored at the heart of global markets, yet reaped only a fraction of their value.</p>
+          <p>They saw communities full of promise but limited by unequal access, and ecosystems straining under unsustainable production. They believed there had to be a better way — one that bridges business success with shared prosperity and planetary regeneration. That conviction became our foundation.</p>
+
+          <p>From the start, we've prioritized sustainability, working to create measurable impact for both people and the planet. Our efforts include building transparent supply chains, supporting farmers, and investing in innovation to deliver products with a reduced environmental footprint.</p>
+          <p>Even our name carries that belief — a promise to nurture growth, resilience, and opportunity. </p>
+          <p>Today, Ophel stands as more than a company. It is a movement to reimagine how food systems work — where farmers prosper, communities thrive, climate action accelerates, and nature flourishes.</p>
         </div>
-        <div className="w-full lg:w-1/4 flex justify-center lg:justify-end mt-8 lg:mt-0"> {/* Adjusted width */}
+        <div className="w-full lg:w-1/4 flex justify-center lg:justify-end">
           <img
-            src="https://igravity.net/wp-content/uploads/2025/08/GRVTY-094-1-e1756971346550-245x300.webp"
+            src="/Founder Jordan.JPG"
             alt="Founder Patrick"
-            className="w-[245px] h-auto rounded-md shadow-lg" // Added rounded corners and shadow
+            className="w-full max-w-[280px] h-auto rounded-lg shadow-xl"
           />
         </div>
       </div>

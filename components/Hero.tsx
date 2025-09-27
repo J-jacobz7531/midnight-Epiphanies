@@ -1,11 +1,15 @@
-'use client'; // needed if you’re on Next.js App Router
+'use client'; // needed if you're on Next.js App Router
 
 import React, { useState, useEffect } from 'react';
 
 const rotatingWords = [
-  'design and manage impact investment mandates',
-  'provide access to unique investment opportunities',
-  'support high impact enterprises'
+  'empower over 300 farmers',
+  'achieve thriving communities',
+  'accelerate climate action',
+  'regenerate the living world',
+  'deliver supply chain excellence',
+  'offer verified low-carbon ingredients',
+  'make sustainability real for customers'
 ];
 
 const Hero: React.FC = () => {
