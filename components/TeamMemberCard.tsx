@@ -13,7 +13,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, delay = 0 }) =>
         <img
           src={member.imageUrl}
           alt={member.name}
-          className="w-full h-auto aspect-[4/5] object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+          className="w-full h-auto aspect-[4/5] object-cover transition-transform duration-300 ease-in-out group-hover:scale-105 grayscale"
         />
       </div>
       <div className="text-center">

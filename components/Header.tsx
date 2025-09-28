@@ -55,7 +55,7 @@ const Header: React.FC = () => {
                 <div className="flex justify-between items-center h-24 md:h-32">
                     <div className="flex-shrink-0">
                         <Link to="/">
-                            <img className="h-12 md:h-16 w-auto" src="https://igravity.net/wp-content/uploads/2025/07/logo.png" alt="iGravity logo" />
+                            <img className="h-30 md:h-40 w-auto" src="/OphelHoldings.png" alt="Ophel Holdings logo" />
                         </Link>
                     </div>
 

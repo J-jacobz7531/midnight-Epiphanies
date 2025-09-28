@@ -5,22 +5,16 @@ export const teamData = [
     title: "Leadership Team",
     members: [
       {
-        name: "Sarah Johnson",
-        title: "Chief Executive Officer",
-        imageUrl: "https://picsum.photos/300/400?random=1",
-        bio: "Sarah brings over 15 years of experience in impact investing and sustainable finance."
+        name: "Edwin Sabitti",
+        title: "Co-Founder & Chief Executive Officer",
+        imageUrl: "/Founder Edwin.jpg",
+        bio: "Edwin is a visionary leader passionate about transforming global food systems through sustainable sourcing and regenerative agriculture. With extensive experience in supply chain innovation, he drives Ophel Holdings' mission to bridge purpose and performance."
       },
       {
-        name: "Michael Chen",
-        title: "Chief Investment Officer",
-        imageUrl: "https://picsum.photos/300/400?random=2",
-        bio: "Michael leads our investment strategy with a focus on measurable social and environmental impact."
-      },
-      {
-        name: "Emma Rodriguez",
-        title: "Chief Financial Officer",
-        imageUrl: "https://picsum.photos/300/400?random=3",
-        bio: "Emma oversees financial operations and ensures transparency in our impact reporting."
+        name: "Jordan Muhwezi",
+        title: "Co-Founder & Chief Operating Officer",
+        imageUrl: "/Founder Jordan.JPG",
+        bio: "Jordan brings deep expertise in operations and sustainable business practices. He leads the development of transparent supply chains and innovative partnerships that empower farmers and communities while delivering measurable environmental impact."
       }
     ] as TeamMember[]
   },
@@ -28,22 +22,10 @@ export const teamData = [
     title: "Investment Team",
     members: [
       {
-        name: "David Kim",
-        title: "Senior Investment Manager",
-        imageUrl: "https://picsum.photos/300/400?random=4",
-        bio: "David specializes in identifying and evaluating high-impact investment opportunities."
-      },
-      {
-        name: "Lisa Thompson",
-        title: "Investment Analyst",
-        imageUrl: "https://picsum.photos/300/400?random=5",
-        bio: "Lisa conducts thorough due diligence on potential investments and portfolio companies."
-      },
-      {
-        name: "James Wilson",
-        title: "Portfolio Manager",
-        imageUrl: "https://picsum.photos/300/400?random=6",
-        bio: "James manages our portfolio companies and supports their growth and impact initiatives."
+        name: "Victor Starr Kramer",
+        title: "Senior Investment Advisor",
+        imageUrl: "/Victor Starr Kramer.jpeg",
+        bio: "Victor brings extensive experience in impact investing and sustainable finance. He specializes in identifying transformative investment opportunities that align with environmental and social impact goals while delivering strong financial returns."
       }
     ] as TeamMember[]
   },
@@ -51,16 +33,16 @@ export const teamData = [
     title: "Operations Team",
     members: [
       {
-        name: "Anna Martinez",
-        title: "Head of Operations",
-        imageUrl: "https://picsum.photos/300/400?random=7",
-        bio: "Anna ensures smooth operations and implements best practices across all departments."
+        name: "James Israel Mayanja",
+        title: "Operations Manager",
+        imageUrl: "/Founder Jamie.png",
+        bio: "James oversees operational excellence and strategic implementation. With a deep understanding of sustainable business practices, he ensures that all operations align with Ophel Holdings' mission of creating regenerative impact across supply chains."
       },
       {
-        name: "Robert Taylor",
-        title: "Impact Measurement Specialist",
-        imageUrl: "https://picsum.photos/300/400?random=8",
-        bio: "Robert develops and monitors impact metrics to measure our social and environmental outcomes."
+        name: "Joshua Katamba Mugagga",
+        title: "Operations Manager",
+        imageUrl: "/Operations Joshua.jpg",
+        bio: "Joshua leads day-to-day operations and process optimization. He specializes in implementing efficient systems and ensuring seamless coordination between teams to deliver on our sustainability commitments and operational goals."
       }
     ] as TeamMember[]
   }

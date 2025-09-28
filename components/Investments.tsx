@@ -6,7 +6,7 @@ import Footer from './Footer';
    ========================= */
    const InvestmentsHero: React.FC = () => {
     return (
-      <header className="bg-[#0f1619] text-white pt-40 pb-36 lg:pt-44 lg:pb-40">
+      <header className="bg-[#0f1619] text-white pt-44 pb-56 lg:pt-48 lg:pb-64">
         <div className="mx-auto max-w-6xl px-6 sm:px-8">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
             {/* Headline */}
@@ -203,17 +203,17 @@ const InvestmentsSection: React.FC = () => {
               Contact
             </h2>
             <img
-              src="https://igravity.net/wp-content/uploads/2025/09/Frederic-Berney.jpg"
-              alt="Frederic Berney"
+              src="/Victor Starr Kramer.jpeg"
+              alt="Victor Starr Kramer"
               className="w-36 h-36 md:w-48 md:h-48 rounded-full mx-auto mb-6 object-cover"
             />
-            <h6 className="font-sans text-xl font-medium text-gray-800">Frederic Berney</h6>
-            <p className="text-gray-600 mb-4">Co-Head Investments</p>
+            <h6 className="font-sans text-xl font-medium text-gray-800">Victor Starr Kramer</h6>
+            <p className="text-gray-600 mb-4">Head of Investments</p>
             <a
-              href="mailto:frederic.berney@igravity.net"
+              href="mailto:vstarrkr@gmail.com"
               className="text-gray-800 hover:text-gray-500 underline"
             >
-              frederic.berney@igravity.net
+              vstarrkr@gmail.com
             </a>
           </div>
         </div>

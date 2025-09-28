@@ -11,7 +11,7 @@ const PeopleHero: React.FC = () => {
         <div className="max-w-3xl">
           <p className="font-sans text-brand-dark-secondary">Our People</p>
           <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-light mt-4 !leading-extra-tight text-brand-dark-tertiary">
-            Discover the passionate individuals at iGravity who are committed to creating innovative financial solutions that make a real impact.
+          Meet the passionate people at Ophel Holdings who are driving sustainable sourcing, empowering farmers, and shaping food systems that truly make a difference.
           </h1>
         </div>
       </div>
