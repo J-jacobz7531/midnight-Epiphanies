@@ -62,17 +62,18 @@ export const SelectField: React.FC<{
           name={name}
           value={value}
           onChange={onChange}
-          className={`mt-1 block w-full pl-3 pr-10 py-3 bg-transparent border-b-2 ${error ? 'border-red-500' : isFocused ? 'border-ig-accent-teal' : 'border-gray-500'} focus:outline-none focus:ring-0 transition-all duration-300 ease-in-out text-ig-off-white appearance-none cursor-pointer form-field`}
+          className={`mt-1 block w-full pl-3 pr-10 py-3 bg-gray-900 border-b-2 ${error ? 'border-red-500' : isFocused ? 'border-ig-accent-teal' : 'border-gray-500'} focus:outline-none focus:ring-0 transition-all duration-300 ease-in-out text-ig-off-white appearance-none cursor-pointer form-field`}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           aria-invalid={!!error}
           aria-describedby={error ? `${name}-error` : undefined}
         >
-          <option>General Inquiry</option>
-          <option>Investments</option>
-          <option>Advisory</option>
-          <option>Partnership</option>
-          <option>Media</option>
+          <option value="" disabled className="bg-gray-900 text-gray-400">Select an option</option>
+          <option value="General Inquiry" className="bg-gray-900 text-ig-off-white">General Inquiry</option>
+          <option value="Investments" className="bg-gray-900 text-ig-off-white">Investments</option>
+          <option value="Advisory" className="bg-gray-900 text-ig-off-white">Advisory</option>
+          <option value="Partnership" className="bg-gray-900 text-ig-off-white">Partnership</option>
+          <option value="Media" className="bg-gray-900 text-ig-off-white">Media</option>
         </select>
         <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
           <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">

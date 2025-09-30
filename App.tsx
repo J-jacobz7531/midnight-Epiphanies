@@ -10,6 +10,7 @@ import Investments from './components/Investments';
 import Products from './components/Products';
 import People from './components/People';
 import Contact from './components/Contact';
+import CoffeeImpactArticle from './components/CoffeeImpactArticle';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/our-history" element={<OurHistory />} />
           <Route path="/news" element={<NewsApp />} />
+          <Route path="/coffee-impact" element={<CoffeeImpactArticle />} />
           <Route path="/impact" element={<Impact />} />
           <Route path="/investments" element={<Investments />} />
           <Route path="/products" element={<Products />} />

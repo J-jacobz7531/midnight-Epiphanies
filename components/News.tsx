@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import type { Post } from '../types';
 import Newsletter from './Newsletter';
 import Footer from './Footer';
 
 const postsData: Post[] = [
-    { id: 1, categories: [{ name: "Investments", tag: "investments" }], title: "Why Emerging Markets Private Debt Is Key to Resilient Impact Portfolios in 2025", imageUrl: "https://igravity.net/wp-content/uploads/2025/09/EMPD-Artwork.png", excerpt: "The year 2024 served as a powerful reminder: the global financial landscape is in constant…", link: "#" },
-    { id: 2, categories: [{ name: "Reports and Publications", tag: "reports-and-publications" }], title: "Refugee Investment Facility (RIF): 2024 Impact Report", imageUrl: "https://igravity.net/wp-content/uploads/2025/08/rif-wave-1-visual-scaled.webp", excerpt: "Both businesses and financial communities have long overlooked refugees - not for lack of potential,…", link: "#" },
-    { id: 3, categories: [{ name: "Reports and Publications", tag: "reports-and-publications" }], title: "Balim Investments: 2024 Impact Report", imageUrl: "https://igravity.net/wp-content/uploads/2025/08/balim-visual-final.webp", excerpt: "In rural Africa, a large number of enterprises operate under challenging conditions while transforming lives,…", link: "#" },
-    { id: 4, categories: [{ name: "Reports and Publications", tag: "reports-and-publications" }], title: "iGravity Investment Solutions: 2024 Financial and Impact Performance Report", imageUrl: "https://igravity.net/wp-content/uploads/2025/08/report-blog-visual.webp", excerpt: "We're thrilled to share our iGravity Investment Solutions: 2024 Financial and Impact Performance Report – a deep…", link: "#" },
-    { id: 5, categories: [{ name: "Investments", tag: "investments" }], title: "Scaling Impact in Jordan's Agricultural Sector Through the Refugee Investment Facility", imageUrl: "https://igravity.net/wp-content/uploads/2025/08/ali-dates-1.webp", excerpt: "The Refugee Investment Facility (RIF) supports private sector-led solutions in forced displacement situations by providing technical assistance…", link: "#" },
-    { id: 6, categories: [{ name: "Investments", tag: "investments" }], title: "Strengthening Uganda's Coffee Sector with Balim Investments", imageUrl: "https://igravity.net/wp-content/uploads/2025/08/mount-elgon-3.webp", excerpt: "Across Uganda's Mount Elgon region, smallholder farmers cultivate some of the world's finest Arabica coffee under dense…", link: "#" },
-    { id: 7, categories: [{ name: "Investments", tag: "investments" }], title: "Expanding Access to Maternal Healthcare in Kenya", imageUrl: "https://igravity.net/wp-content/uploads/2025/08/jacaranda-sign-website.webp", excerpt: "Sub-Saharan Africa faces some of the most severe health challenges globally, particularly in maternal and…", link: "#" },
-    { id: 8, categories: [{ name: "News", tag: "news" }], title: "Selected as a SIFI Innovator: Advancing Impact Finance for Global Goals", imageUrl: "https://igravity.net/wp-content/uploads/2025/08/img2.webp", excerpt: "iGravity and Helvetas are proud to be among the five impactful initiatives chosen in the third funding cycle…", link: "#" },
-    { id: 9, categories: [{ name: "Impact Stories", tag: "impact-stories" }, { name: "Investments", tag: "investments" }], title: "Balim Investments Partners with Flow Uganda to Expand Financial Inclusion in Rural Areas", imageUrl: "https://igravity.net/wp-content/uploads/2025/08/pexels-kindelmedia-6775117.jpg", excerpt: "Flow Uganda, a leading fintech empowering mobile money agents across the country, is the latest impactful…", link: "#" },
-    { id: 10, categories: [{ name: "Impact Stories", tag: "impact-stories" }, { name: "News", tag: "news" }], title: "Reimagining Impact: iGravity's New Theory of Change", imageUrl: "https://igravity.net/wp-content/uploads/2025/08/pexels-gabby-k-9487229.jpg", excerpt: "In impact investing, a Theory of Change (ToC) isn't just a framework—it's a roadmap, and…", link: "#" },
-    { id: 11, categories: [{ name: "Events", tag: "events" }], title: "Latimpacto in Medellín Colombia 1st – 3rd Sept", imageUrl: "https://igravity.net/wp-content/uploads/2025/08/pexels-daniel-morales-2147564134-29745520.jpg", excerpt: "1st - 3rd September", link: "#" },
-    { id: 12, categories: [{ name: "Events", tag: "events" }], title: "Building Bridges 2025 in Geneva 30 Sept – 2 Oct", imageUrl: "https://igravity.net/wp-content/uploads/2025/08/pexels-shottrotter-695342.jpg", excerpt: "Sep 30: Costs and Opportunities of Real Impact: What It Takes for Impact-First Investments to…", link: "#" },
-    { id: 13, categories: [{ name: "Case Studies", tag: "case-studies" }], title: "Design of the Entrepeneur Support Organization's (ESOs) RBF pilot to enhance financial sustainability", imageUrl: "https://igravity.net/wp-content/uploads/2023/07/9.webp", excerpt: "iGravity, together with the Dutch Good Growth Fund designed a state-of-the-art RBF program, whereby the…", link: "#" },
-    { id: 14, categories: [{ name: "Case Studies", tag: "case-studies" }], title: "Structuring Study of a Blended Finance Facility for the Near East Foundation", imageUrl: "https://igravity.net/wp-content/uploads/2023/07/3.webp", excerpt: "iGravity supports the Near East Foundation in designing and setting up of a blended finance…", link: "#" },
+    { id: 1, categories: [{ name: "Impact Stories", tag: "impact-stories" }], title: "Impact of Coffee on Predominantly Coffee-Growing Communities in Uganda", imageUrl: "/Coffee1.jpeg", excerpt: "Exploring the multifaceted effects of coffee production on Uganda's rural communities, from economic empowerment to environmental sustainability challenges.", link: "/coffee-impact" },
+    { id: 2, categories: [{ name: "Reports and Publications", tag: "reports-and-publications" }], title: "East Africa's Sesame Sector Faces Growth Amid Conflict and Production Hurdles", imageUrl: "/Sesame1.jpg", excerpt: "East Africa's sesame market is projected to reach USD 16.7 billion by 2033, driven by growing global demand for healthy food ingredients, yet production is increasingly hampered by conflict in key producing nations Ethiopia and Sudan.", link: "#" },
+    { id: 3, categories: [{ name: "Impact Stories", tag: "impact-stories" }], title: "Sustainability and Resilience: East Africa's Coffee Value Chain at a Crossroads", imageUrl: "/Coffee2.jpeg", excerpt: "In the highlands of Kenya, Ethiopia, Uganda, and Tanzania, millions of smallholder coffee farmers are grappling with a perfect storm of climate change impacts and evolving market demands that threaten their livelihoods.", link: "#" },
+    { id: 4, categories: [{ name: "News", tag: "news" }], title: "Madagascar's Vanilla Market: Cyclones, Oversupply, and Price Volatility Shake Global Trade", imageUrl: "/Vanilla1.jpg", excerpt: "Madagascar exported an unprecedented 2,400 metric tons of vanilla in the first half of 2024, yet prices have plummeted below USD 20 per kilogram following the cancellation of minimum export pricing.", link: "#" },
+    { id: 5, categories: [{ name: "Reports and Publications", tag: "reports-and-publications" }], title: "East Africa's Maize Markets: Food Security at Stake Amid Changing Prices and Policy Shifts", imageUrl: "/Maize1.jpg", excerpt: "Maize prices across East Africa have surged 10% above 2020 levels, creating ripple effects through regional food systems where the staple grain feeds millions and underpins food security for vulnerable populations.", link: "#" },
+    { id: 6, categories: [{ name: "Case Studies", tag: "case-studies" }], title: "West Africa's Cocoa Sector: Sustainability Initiatives Battle Deforestation and Value Chain Inequities", imageUrl: "/Cocoa1.jpg", excerpt: "In the cocoa plantations of Côte d'Ivoire and Ghana, where over 60% of the world's cocoa is produced, a sustainability revolution is taking shape as smallholder farmers confront the stark reality of their economic situation.", link: "#" },
+    { id: 7, categories: [{ name: "Investments", tag: "investments" }], title: "Climate-Smart Agriculture: Investment Opportunities in East African Commodity Markets", imageUrl: "/farmers-working.jpg", excerpt: "New investment frameworks are emerging to support climate-resilient agricultural practices across East Africa's key commodity sectors, from coffee to sesame production.", link: "#" },
+    { id: 8, categories: [{ name: "Reports and Publications", tag: "reports-and-publications" }], title: "Commodity Market Analysis 2024: Five Strategic Sectors Shaping African Agricultural Trade", imageUrl: "/plantation.jpeg", excerpt: "A comprehensive analysis of sesame, coffee, vanilla, maize, and cocoa markets reveals the complex interplay of market forces, policy interventions, and sustainability challenges shaping African agricultural trade.", link: "#" },
+    { id: 9, categories: [{ name: "Impact Stories", tag: "impact-stories" }], title: "Smallholder Farmers Navigate Climate Change in Uganda's Coffee Highlands", imageUrl: "/Coffee3.jpeg", excerpt: "Coffee farmers in Uganda's Mount Elgon region are adapting traditional practices to cope with changing rainfall patterns and rising temperatures that threaten their livelihoods.", link: "#" },
+    { id: 10, categories: [{ name: "News", tag: "news" }], title: "EU Launches €25 Million Sustainable Cocoa Initiative for West Africa", imageUrl: "/CocoaPlantation.jpg", excerpt: "The European Union's comprehensive approach to addressing deforestation, child labor, and economic inequality in West African cocoa production enters its implementation phase.", link: "#" },
+    { id: 11, categories: [{ name: "Investments", tag: "investments" }], title: "Sesame Value Chain Development: Investment Opportunities in Conflict-Affected Regions", imageUrl: "/Sesame2.jpg", excerpt: "Despite security challenges in Ethiopia and Sudan, sesame's growing global market presents strategic investment opportunities for value chain development and farmer support programs.", link: "#" },
+    { id: 12, categories: [{ name: "Case Studies", tag: "case-studies" }], title: "Madagascar Vanilla Cooperatives: Building Resilience Through Certification and Quality Standards", imageUrl: "/Vanilla.jpg", excerpt: "Farmer cooperatives in Madagascar's SAVA region are leveraging organic certification and quality improvements to navigate volatile vanilla markets and climate challenges.", link: "#" },
+    { id: 13, categories: [{ name: "Reports and Publications", tag: "reports-and-publications" }], title: "Food Security and Trade Integration: Maize Markets Under the African Continental Free Trade Area", imageUrl: "/Maize2.jpg", excerpt: "Regional trade integration offers opportunities for stabilizing maize markets across East Africa, but implementation requires coordinated policies and infrastructure investments.", link: "#" },
+    { id: 14, categories: [{ name: "Case Studies", tag: "case-studies" }], title: "Ophel Holdings: Building Climate-Smart Sesame & Coffee Value Chains in East Africa", imageUrl: "/Sesame1.jpg", excerpt: "Ophel Holdings is developing an integrated platform that aligns finance, technology, and agronomy to help smallholders and agri-SMEs consistently meet export-grade quality in sesame and coffee.", link: "#" },
+    { id: 15, categories: [{ name: "Investments", tag: "investments" }], title: "Digital Agriculture Platforms Transform Commodity Trading in East Africa", imageUrl: "/Maize3.jpg", excerpt: "Mobile technology and digital payment systems are connecting smallholder farmers directly with global markets, reducing intermediaries and improving price discovery across commodity value chains.", link: "#" },
 ];
 
 const filters = [
@@ -31,10 +33,17 @@ const filters = [
 ];
 
 const PostCard: React.FC<{ post: Post; onPostClick: (post: Post) => void }> = ({ post, onPostClick }) => {
+  const navigate = useNavigate();
+  
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    // Handle clicks for posts with IDs 1-12, 13 (ESO case study), and 14 (NEF case study)
-    if ((post.id >= 1 && post.id <= 12) || post.id === 13 || post.id === 14) {
+    // Handle navigation to coffee impact article
+    if (post.id === 1) {
+      navigate('/coffee-impact');
+      return;
+    }
+    // Handle clicks for posts with IDs 2-15
+    if (post.id >= 2 && post.id <= 15) {
       onPostClick(post);
     } else {
       // For other posts, you could handle differently or show a message
@@ -120,8 +129,8 @@ const News: React.FC<{ onPostClick?: (post: Post) => void }> = ({ onPostClick = 
       {/* Newsletter Section */}
       <Newsletter />
       
-      {/* Footer */}
-      <Footer />
+      {/* Footer
+      <Footer /> */}
     </div>
   );
 };

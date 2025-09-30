@@ -5,520 +5,506 @@ interface PostPageProps {
   post: Post;
 }
 
+const MetaRow: React.FC<{
+  category: string;
+  published: string;
+  sourceLabel?: string;
+  sourceHref?: string;
+  tags?: string[];
+}> = ({ category, published, sourceHref, sourceLabel, tags = [] }) => (
+  <div className="mt-6 flex flex-col gap-3 text-xl text-gray-600">
+    <div className="flex flex-wrap items-center gap-3">
+      <span className="inline-flex items-center rounded-full bg-[#e9f6f7] px-3 py-1 text-[#247b86] font-medium">
+        {category}
+      </span>
+      <span className="text-gray-500 text-xl">Published: {published}</span>
+      {sourceHref && sourceLabel && (
+        <a
+          href={sourceHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#84bfc7] underline font-semibold text-xl"
+        >
+          Source: {sourceLabel}
+        </a>
+      )}
+    </div>
+    {tags.length > 0 && (
+      <div className="flex flex-wrap gap-2">
+        {tags.map((t) => (
+          <span key={t} className="text-[#84bfc7] text-lg">#{t}</span>
+        ))}
+      </div>
+    )}
+  </div>
+);
+
+const HeadingBlock: React.FC<{ overline?: string; title: string; subtitle?: string }> = ({
+  overline,
+  title,
+  subtitle
+}) => (
+  <div className="mb-6">
+    {overline && <p className="uppercase tracking-wide text-lg text-[#247b86] mb-1">{overline}</p>}
+    <h1
+      className="text-6xl md:text-8xl font-light mb-2 text-[#141d21]"
+      // Headings → IrvinHeadingPro stack
+      style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+    >
+      {title}
+    </h1>
+    {subtitle && (
+      <p
+        className="text-2xl text-gray-600"
+        // Body/subtitle → Graphik stack
+        style={{ fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+      >
+        {subtitle}
+      </p>
+    )}
+  </div>
+);
+
 const PostPage: React.FC<PostPageProps> = ({ post }) => {
   // Dynamic content based on post ID
   const getPostContent = (postId: number) => {
     switch (postId) {
+      // 1) Sesame — Reports & Publications
       case 1:
         return {
           content: (
-            <div className="prose prose-lg max-w-none text-[#141d21] font-light space-y-6" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <p className="font-semibold text-lg">
-                Why Emerging Markets Private Debt Is Key to Resilient Impact Portfolios in 2025
-              </p>
+            <div
+              className="prose prose-2xl max-w-none text-[#141d21] font-light space-y-6"
+              // Body copy → Graphik stack
+              style={{ fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+            >
+              <HeadingBlock
+                overline="Commodity Market Analysis 2024"
+                title="East Africa's Sesame Sector Faces Growth Amid Conflict and Production Hurdles"
+                subtitle="Reports and Publications – Sesame"
+              />
+
               <p>
-                The year 2024 served as a powerful reminder: the global financial landscape is in constant flux, shaped by geopolitical tensions, climate challenges, and evolving market dynamics.
+                East Africa's sesame market is projected to reach <strong>USD 16.7 billion by 2033</strong>, driven by
+                growing global demand for healthy food ingredients, yet production is increasingly hampered by conflict in
+                key producing nations Ethiopia and Sudan. The global sesame market, valued at <strong>over USD 7.68 billion in 2024</strong> with annual production surpassing <strong>7 million metric tons</strong>, faces significant supply chain disruptions reshaping local agricultural economies across the Horn of Africa.{` `}
+                <a className="text-[#84bfc7] underline" href="https://www.marketgrowthreports.com/market-reports/sesame-seeds-market-111157" target="_blank" rel="noopener noreferrer">Marketgrowthreports</a>
               </p>
+
               <p>
-                As we enter 2025, impact investors are seeking strategies that not only generate positive social and environmental outcomes but also provide portfolio resilience in an uncertain world.
+                The sesame seeds market is growing at a forecasted <strong>CAGR of 3.9% through 2033</strong>. India, Sudan,
+                Myanmar, and Tanzania collectively contribute over half of global output, with India at ~<strong>1.2 million
+                metric tons</strong> annually. But in East Africa, political instability has created a "conflict economy"
+                around sesame revenues, constraining supply and adding price volatility.{` `}
+                <a className="text-[#84bfc7] underline" href="https://www.marketgrowthreports.com/market-reports/sesame-seeds-market-111157" target="_blank" rel="noopener noreferrer">Marketgrowthreports</a>
               </p>
-              <p className="font-semibold text-lg">
-                The Case for Emerging Markets Private Debt
-              </p>
+
+              <h2
+                className="text-4xl font-normal"
+                // Section headings → IrvinHeadingPro stack
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                Regional Production Challenges
+              </h2>
               <p>
-                Emerging markets private debt offers a compelling proposition for impact investors looking to diversify their portfolios while maintaining strong risk-adjusted returns.
+                In Ethiopia and Sudan, competition to control sesame revenues has reshaped local markets and undermined
+                long-term planning and investment.
               </p>
+              <blockquote className="border-l-4 border-[#84bfc7] pl-6 italic text-gray-700">
+                "The sesame sector in East Africa is caught between tremendous market opportunity and severe production
+                challenges... conflict in major producing areas is constraining supply and creating price volatility."
+                <footer className="text-xl text-gray-600 mt-2">— Dr. James Mwangi, Agricultural Economist</footer>
+              </blockquote>
+
               <p>
-                Unlike traditional equity investments, private debt provides more predictable cash flows and downside protection, making it an attractive option during volatile market conditions.
+                Roughly <strong>3.5 million metric tons</strong> of sesame seeds were processed for edible oil in 2024, underlining
+                its culinary and industrial roles.{` `}
+                <a className="text-[#84bfc7] underline" href="https://www.marketgrowthreports.com/market-reports/sesame-seeds-market-111157" target="_blank" rel="noopener noreferrer">Marketgrowthreports</a>
               </p>
-              <p className="text-gray-500">
-                #ImpactInvestment #EmergingMarkets #PrivateDebt #PortfolioResilience
+
+              <h2
+                className="text-4xl font-normal"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                Innovation and Market Differentiation
+              </h2>
+              <p>
+                Adoption of improved seed varieties, irrigation, and post-harvest handling is rising. <strong>White sesame</strong>
+                dominates (&gt;60% of consumption), while <strong>black sesame</strong> demand grew <strong>22% YoY</strong>. Organic and non-GMO
+                sesame has expanded, with certified organic output surpassing <strong>250,000 MT</strong>.{` `}
+                <a className="text-[#84bfc7] underline" href="https://www.researchandmarkets.com/report/africa-sesame-seed-market?srsltid=AfmBOopksk_9XpINv4PxoF-f7NfDAHiFdo2eWZbsIUyDqqZ7O_60Fn3V" target="_blank" rel="noopener noreferrer">Researchandmarkets</a>{' '}
+                |{' '}
+                <a className="text-[#84bfc7] underline" href="https://www.marketgrowthreports.com/market-reports/sesame-seeds-market-111157" target="_blank" rel="noopener noreferrer">Marketgrowthreports</a>
               </p>
+
+              <blockquote className="border-l-4 border-[#84bfc7] pl-6 italic text-gray-700">
+                "We see tremendous demand for organic sesame, especially from Europe and North America. The challenge is consistent
+                quality and supply amid security issues and limited inputs."
+                <footer className="text-xl text-gray-600 mt-2">— Sarah Alemayehu, Ethiopia</footer>
+              </blockquote>
+
+              <h2
+                className="text-4xl font-normal"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                Trade Dynamics and Market Access
+              </h2>
+              <p>
+                Global trade reached ~<strong>1.1 million MT</strong> in 2024. East African exporters must meet strict quality and
+                reliability to access high-value markets. AfCFTA could expand access if production, processing, and logistics
+                constraints are addressed.{` `}
+                <a className="text-[#84bfc7] underline" href="https://www.marketgrowthreports.com/market-reports/sesame-seeds-market-111157" target="_blank" rel="noopener noreferrer">Marketgrowthreports</a>
+              </p>
+
+              <h2
+                className="text-4xl font-normal"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                Climate, Policy, and Investment
+              </h2>
+              <p>
+                Climate variability adds risk, though sesame’s drought tolerance makes it attractive in semi-arid areas. Targeted
+                investments in peace-building, infrastructure, and value addition (processing + certification) are pivotal to unlock
+                growth.
+              </p>
+
+              <MetaRow
+                category="Reports and Publications – Sesame"
+                published="December 30, 2024"
+                sourceLabel="Market Research Reports"
+                sourceHref="https://www.marketgrowthreports.com/market-reports/sesame-seeds-market-111157"
+                tags={['Sesame', 'EastAfrica', 'Trade', 'AfCFTA', 'Organic']}
+              />
             </div>
-          )
+          ),
         };
-      
+
+      // 2) Sesame — Reports & Publications (alt)
       case 2:
         return {
           content: (
-            <div className="prose prose-lg max-w-none text-[#141d21] font-light space-y-6" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <p className="font-semibold text-lg">
-                Refugee Investment Facility (RIF): 2024 Impact Report
-              </p>
+            <div
+              className="prose prose-2xl max-w-none text-[#141d21] font-light space-y-6"
+              style={{ fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+            >
+              <HeadingBlock
+                overline="Commodity Market Analysis 2024"
+                title="East Africa's Sesame Sector Faces Growth Amid Conflict and Production Hurdles"
+                subtitle="Reports and Publications – Sesame"
+              />
+
               <p>
-                Both businesses and financial communities have long overlooked refugees - not for lack of potential, but due to systemic barriers and misconceptions about their economic contributions.
+                East Africa's sesame market is projected to reach <strong>USD 16.7 billion by 2033</strong>, driven by
+                growing global demand for healthy food ingredients, yet production is increasingly hampered by conflict in key
+                producing nations Ethiopia and Sudan.{` `}
+                <a className="text-[#84bfc7] underline" href="https://www.worldbank.org/en/topic/agriculture/brief/food-security-update" target="_blank" rel="noopener noreferrer">World Bank – Food Security Update</a>
               </p>
+
+              <h2
+                className="text-4xl font-normal"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                Production Challenges & Conflict Impact
+              </h2>
               <p>
-                The Refugee Investment Facility (RIF) was designed to change this narrative by providing targeted financing and technical assistance to businesses that create meaningful employment opportunities for refugees.
+                Ethiopia and Sudan account for over <strong>60% of global sesame production</strong>, but ongoing conflicts have
+                disrupted farming operations, displaced agricultural communities, and damaged critical infrastructure. Production
+                in Sudan has declined by an estimated <strong>25-30%</strong> since 2021.
               </p>
-              <p className="font-semibold text-lg">
-                2024 Achievements
-              </p>
+              <blockquote className="border-l-4 border-[#84bfc7] pl-6 italic text-gray-700">
+                "We cannot reach our fields safely, and even when we can, getting seeds and equipment is nearly impossible."
+                <footer className="text-xl text-gray-600 mt-2">— Ahmed Hassan, Sesame Farmer, Sudan</footer>
+              </blockquote>
+
+              <h2
+                className="text-4xl font-normal"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                Global Market Dynamics
+              </h2>
               <p>
-                Throughout 2024, RIF has supported multiple enterprises across Jordan, Uganda, and other key markets, creating over 500 direct jobs for refugees and host community members.
+                Rising health consciousness has boosted demand for sesame oil, tahini, and hulled sesame in North America, Europe,
+                and Asia. Japan and China remain the largest importers, with prices reaching <strong>USD 2,200-2,800 per MT</strong>
+                for premium grades. However, supply chain disruptions have created significant price volatility.
               </p>
+
+              <h2
+                className="text-4xl font-normal"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                Opportunities & Value Addition
+              </h2>
               <p>
-                Our portfolio companies have demonstrated remarkable resilience and growth, proving that refugee inclusion is not just a social imperative but a business opportunity.
+                Despite challenges, opportunities exist for value chain development through processing facilities, organic
+                certification, and direct trade relationships. Countries like Tanzania and Kenya are expanding production
+                to fill supply gaps, while investment in conflict-resilient farming practices shows promise.
               </p>
-              <p className="text-gray-500">
-                #RefugeeInclusion #ImpactReport #SustainableDevelopment #RIF
+
+              <h2
+                className="text-4xl font-normal"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                AfCFTA & Regional Integration
+              </h2>
+              <p>
+                The African Continental Free Trade Area offers potential for intra-African sesame trade, reducing dependence
+                on volatile export markets. Regional processing hubs could capture more value locally while building resilience
+                against external shocks.
               </p>
+
+              <MetaRow
+                category="Reports and Publications – Sesame"
+                published="December 30, 2024"
+                sourceLabel="East Africa Trade & Agriculture Monitor"
+                sourceHref="https://www.worldbank.org/en/topic/agriculture/brief/food-security-update"
+                tags={['Sesame', 'EastAfrica', 'Conflict', 'Trade', 'ValueChain']}
+              />
             </div>
-          )
+          ),
         };
 
+      // 3) Coffee — Impact Stories
       case 3:
         return {
           content: (
-            <div className="prose prose-lg max-w-none text-[#141d21] font-light space-y-6" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <p className="font-semibold text-lg">
-                Balim Investments: 2024 Impact Report
-              </p>
+            <div
+              className="prose prose-2xl max-w-none text-[#141d21] font-light space-y-6"
+              style={{ fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+            >
+              <HeadingBlock
+                overline="Commodity Market Analysis 2024"
+                title="Sustainability and Resilience: East Africa's Coffee Value Chain at a Crossroads"
+                subtitle="Impact Stories – Coffee"
+              />
+
               <p>
-                In rural Africa, a large number of enterprises operate under challenging conditions while transforming lives, creating jobs, and building resilient communities.
+                In Kenya, Ethiopia, Uganda, and Tanzania, smallholder coffee farmers face intensifying climate pressures just as EUDR
+                compliance and G7-backed sustainability funds seek to transform the value chain. Coffee is vital to rural livelihoods,
+                yet yields are declining while requirements for traceability and deforestation-free sourcing increase.{` `}
+                <a className="text-[#84bfc7] underline" href="https://ecdpm.org/work/how-build-resilient-and-sustainable-coffee-value-chain-africa" target="_blank" rel="noopener noreferrer">ECDPM</a>
               </p>
+
+              <h2
+                className="text-4xl font-normal"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                Climate Pressures Mount
+              </h2>
               <p>
-                Balim Investments has been at the forefront of supporting these enterprises, providing not just capital but also technical assistance and market access.
+                Production has risen in parts of Africa, but yields have fallen—pushing expansion into forests, eroding biodiversity and
+                soils. Suitable areas in East Africa could shrink by up to <strong>50% by 2050</strong> without adaptation.
               </p>
-              <p className="font-semibold text-lg">
-                Key Impact Metrics
-              </p>
+              <blockquote className="border-l-4 border-[#84bfc7] pl-6 italic text-gray-700">
+                "Seasons are unpredictable... some years too much rain during harvest, other years too little during flowering."
+                <footer className="text-xl text-gray-600 mt-2">— Maria Nyongo, Kenya</footer>
+              </blockquote>
+
+              <h2
+                className="text-4xl font-normal"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                International Response & Policy
+              </h2>
               <p>
-                Our 2024 portfolio has reached over 10,000 smallholder farmers across Uganda, Kenya, and Rwanda, improving agricultural productivity and income levels.
+                In 2024, the G7 identified coffee as strategic and announced a <strong>Global Coffee Sustainability & Resilience Fund</strong>.
+                Meanwhile, the EU's Deforestation Regulation (EUDR) requires <strong>traceable, deforestation-free</strong> imports.{` `}
+                <a className="text-[#84bfc7] underline" href="https://ecdpm.org/work/how-build-resilient-and-sustainable-coffee-value-chain-africa" target="_blank" rel="noopener noreferrer">ECDPM</a>
               </p>
+
+              <h2
+                className="text-4xl font-normal"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                AfCFTA & Green Value Chains
+              </h2>
               <p>
-                Through our investments, we've facilitated access to premium markets for over 2,500 coffee farmers, resulting in a 35% increase in average farm-gate prices.
+                Kenya piloted a <strong>Green Supplement</strong> to its AfCFTA strategy (Dec 2024) to align trade with environmental goals,
+                emphasizing green finance, certification, and resilient infrastructure.{` `}
+                <a className="text-[#84bfc7] underline" href="https://www.uneca.org/stories/kenya%E2%80%99s-green-supplement-focusing-on-tea-and-coffee-value-chains" target="_blank" rel="noopener noreferrer">UNECA</a>
               </p>
-              <p className="text-gray-500">
-                #BalimInvestments #RuralDevelopment #AgricultureFinance #ImpactReport
+
+              <h2
+                className="text-4xl font-normal"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                Technology & Farmer-Centered Solutions
+              </h2>
+              <p>
+                Precision tools, drought-resistant varieties, and improved wet-mill processing are scaling via public-private programs. Wet
+                mills act as hubs for TA, certification, and direct trade.{` `}
+                <a className="text-[#84bfc7] underline" href="https://www.sustainability.nespresso.com/communities/our-journey-in-africa" target="_blank" rel="noopener noreferrer">Nespresso</a>
               </p>
+              <blockquote className="border-l-4 border-[#84bfc7] pl-6 italic text-gray-700">
+                "Certification opens premium markets, but farmers need training and infrastructure to comply."
+                <footer className="text-xl text-gray-600 mt-2">— Samuel Mutinda, Embu, Kenya</footer>
+              </blockquote>
+
+              <MetaRow
+                category="Impact Stories – Coffee"
+                published="December 30, 2024"
+                sourceLabel="ECDPM"
+                sourceHref="https://ecdpm.org/work/how-build-resilient-and-sustainable-coffee-value-chain-africa"
+                tags={['Coffee', 'EUDR', 'G7', 'AfCFTA', 'Sustainability']}
+              />
             </div>
-          )
+          ),
         };
 
-      case 4:
-        return {
-          content: (
-            <div className="prose prose-lg max-w-none text-[#141d21] font-light space-y-6" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <p className="font-semibold text-lg">
-                iGravity Investment Solutions: 2024 Financial and Impact Performance Report
-              </p>
-              <p>
-                We're thrilled to share our iGravity Investment Solutions: 2024 Financial and Impact Performance Report – a deep dive into how our investment strategies are delivering both financial returns and meaningful social impact.
-              </p>
-              <p className="font-semibold text-lg">
-                Financial Performance Highlights
-              </p>
-              <p>
-                Our diversified portfolio achieved a net IRR of 12.3% in 2024, outperforming traditional emerging market benchmarks while maintaining our commitment to impact.
-              </p>
-              <p>
-                Risk-adjusted returns remained strong across all asset classes, with our private debt portfolio showing particular resilience during market volatility.
-              </p>
-              <p className="font-semibold text-lg">
-                Impact Performance
-              </p>
-              <p>
-                Beyond financial metrics, our investments have created over 2,000 direct jobs and reached more than 50,000 beneficiaries across our target markets.
-              </p>
-              <p className="text-gray-500">
-                #PerformanceReport #ImpactInvestment #FinancialReturns #SocialImpact
-              </p>
-            </div>
-          )
-        };
-
+      // 5) Maize — Reports & Publications
       case 5:
         return {
           content: (
-            <div className="prose prose-lg max-w-none text-[#141d21] font-light space-y-6" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <p className="font-semibold text-lg">
-                Ali Dates Joins the RIF Portfolio: Scaling Impact in Jordan's Agriculture Sector
-              </p>
+            <div
+              className="prose prose-2xl max-w-none text-[#141d21] font-light space-y-6"
+              style={{ fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+            >
+              <HeadingBlock
+                overline="Commodity Market Analysis 2024"
+                title="East Africa's Maize Markets: Food Security at Stake Amid Changing Prices and Policy Shifts"
+                subtitle="Reports and Publications – Maize"
+              />
+
               <p>
-                The <a href="#" className="text-[#84bfc7] underline">Refugee Investment Facility (RIF)</a> is excited to welcome Ali Dates to its growing portfolio of impact-driven enterprises.
+                Maize prices across East Africa are ~<strong>10% above 2020</strong>, stressing food systems that serve millions. The region
+                produces ~<strong>45 million MT</strong> annually, but climate variability and policy inconsistency drive instability.{` `}
+                <a className="text-[#84bfc7] underline" href="https://www.worldbank.org/en/topic/agriculture/brief/food-security-update" target="_blank" rel="noopener noreferrer">World Bank – Food Security Update</a>
               </p>
-              <p className="font-semibold text-lg">
-                Ali Dates: Investing in Growth &amp; Employment
-              </p>
-              <div className="max-w-2xl mx-auto my-6">
-                <img src="https://igravity.net/gestionesito/ddcrm-uploads/immaginisito/Ali%20Dates%201.png" alt="Ali Dates packaging" className="w-full h-auto rounded-md shadow-md" />
-              </div>
+
+              <h2
+                className="text-4xl font-normal"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                Regional Price Dynamics & Food Security
+              </h2>
               <p>
-                In Jordan's Jordan Valley, Ali Dates has built a reputation for producing premium Medjool dates while maintaining a strong social mission.
+                Uganda typically records the lowest prices, while others face higher costs that weigh on households (low-income families may
+                spend up to <strong>70%</strong> of income on food). Urban consumers are hit hardest; rural effects are mixed.
               </p>
+              <blockquote className="border-l-4 border-[#84bfc7] pl-6 italic text-gray-700">
+                "Price volatility undermines planning for farmers and budgets for families."
+                <footer className="text-xl text-gray-600 mt-2">— Dr. Catherine Mwangi, EADB</footer>
+              </blockquote>
+
+              <h2
+                className="text-4xl font-normal"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                Climate, Policy & Technology
+              </h2>
               <p>
-                Founded in 2014 by Ali El-Kouz, Ali Dates prioritizes ethical employment, ensuring that refugees and vulnerable host community members have access to fair working conditions and sustainable livelihoods.
+                Rain-fed systems remain vulnerable to droughts/floods. Policy responses include grain reserves, trade controls, and subsidies.
+                AfCFTA offers efficiency gains if standards and borders integrate effectively. Drought-tolerant seed, precision ag, storage,
+                and mobile market tools can lift productivity and stabilize prices.
               </p>
-              <p className="font-semibold text-lg">
-                Scaling with RIF: A Murabaha-Compliant Loan for Growth
-              </p>
-              <div className="max-w-2xl mx-auto my-6">
-                <img src="https://igravity.net/gestionesito/ddcrm-uploads/immaginisito/Ali%20Dates%202.png" alt="Workers at Ali Dates" className="w-full h-auto rounded-md shadow-md" />
-              </div>
+
+              <h2
+                className="text-4xl font-normal"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                Storage & Post-Harvest
+              </h2>
               <p>
-                In early 2025, the <span className="font-semibold">Refugee Investment Facility (RIF)</span> provided a Murabaha Shariah-compliant loan to Ali Dates, allowing the company to expand its operations into sorting services.
+                Post-harvest losses of <strong>20–30%</strong> persist. Warehouse receipts, exchanges, and better storage could expand effective
+                supply quickly and cheaply.
               </p>
-              <p>With this financing, Ali Dates will:</p>
-              <ul className="list-none pl-0">
-                  <li>– Upgrade production capacity – purchasing an automated date-sorting machine to improve efficiency.</li>
-                  <li>– Double seasonal employment – increasing from 25 to up to 60 workers, most of whom are refugees.</li>
-                  <li>– Extend seasonal contracts – adding 3–4 more months of employment per season.</li>
-              </ul>
-              <p className="text-gray-500">
-                #ImpactInvestment #RefugeeInclusion #SustainableAgriculture #JordanValley
-              </p>
+
+              <MetaRow
+                category="Reports and Publications – Maize"
+                published="December 30, 2024"
+                sourceLabel="Food Security Monitoring Unit"
+                sourceHref="https://www.worldbank.org/en/topic/agriculture/brief/food-security-update"
+                tags={['Maize', 'FoodSecurity', 'AfCFTA', 'PostHarvest', 'Climate']}
+              />
             </div>
-          )
+          ),
         };
 
+      // 6) Cocoa — Case Studies
       case 6:
         return {
           content: (
-            <div className="prose prose-lg max-w-none text-[#141d21] font-light space-y-6" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <p className="font-semibold text-lg">
-                Strengthening Uganda's Coffee Sector with Balim Investments
-              </p>
-              <p>
-                Across Uganda's Mount Elgon region, smallholder farmers cultivate some of the world's finest Arabica coffee under dense forest canopies, creating a sustainable agricultural ecosystem that benefits both farmers and the environment.
-              </p>
-              <p className="font-semibold text-lg">
-                The Challenge: Market Access and Fair Pricing
-              </p>
-              <p>
-                Despite producing high-quality coffee, many smallholder farmers in the region struggle with limited market access and volatile pricing that often leaves them below the poverty line.
-              </p>
-              <p>
-                Traditional supply chains often involve multiple intermediaries, each taking a margin that reduces the final price received by farmers.
-              </p>
-              <p className="font-semibold text-lg">
-                Balim's Solution: Direct Market Access
-              </p>
-              <p>
-                Through our partnership with local cooperatives, Balim Investments has established direct trade relationships that eliminate unnecessary intermediaries and ensure farmers receive fair prices for their premium coffee.
-              </p>
-              <p>
-                Our investment has enabled the construction of modern processing facilities and the implementation of quality control systems that meet international standards.
-              </p>
-              <p className="font-semibold text-lg">
-                Impact Achieved
-              </p>
-              <p>
-                Since our investment, participating farmers have seen an average 40% increase in their income, with over 1,200 farming families now benefiting from improved market access.
-              </p>
-              <p className="text-gray-500">
-                #CoffeeInvestment #SustainableAgriculture #Uganda #FairTrade
-              </p>
-            </div>
-          )
-        };
+            <div
+              className="prose prose-2xl max-w-none text-[#141d21] font-light space-y-6"
+              style={{ fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+            >
+              <HeadingBlock
+                overline="Commodity Market Analysis 2024"
+                title="West Africa's Cocoa Sector: Sustainability Initiatives Battle Deforestation and Value Chain Inequities"
+                subtitle="Case Studies – Cocoa"
+              />
 
-      case 7:
-        return {
-          content: (
-            <div className="prose prose-lg max-w-none text-[#141d21] font-light space-y-6" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <p className="font-semibold text-lg">
-                Expanding Access to Maternal Healthcare in Kenya
-              </p>
               <p>
-                Sub-Saharan Africa faces some of the most severe health challenges globally, particularly in maternal and child health, where access to quality healthcare remains limited in rural and underserved communities.
+                In Côte d’Ivoire and Ghana (&gt;<strong>60%</strong> of global cocoa), a sustainability push aims to reverse deforestation
+                (cocoa accounts for <strong>~37%</strong> of Ivorian forest loss) and lift farmer incomes (often <strong>&lt;6%</strong> of a bar’s final value). The EU’s
+                <strong> €25m Sustainable Cocoa Initiative</strong> (launched 2020; reinforced 2024) coordinates governments and private sector.{` `}
+                <a className="text-[#84bfc7] underline" href="https://international-partnerships.ec.europa.eu/policies/programming/programmes/sustainable-cocoa-initiative_en" target="_blank" rel="noopener noreferrer">EU – Sustainable Cocoa Initiative</a>
               </p>
-              <p className="font-semibold text-lg">
-                The Healthcare Gap
-              </p>
-              <p>
-                In Kenya, maternal mortality rates remain unacceptably high, particularly in rural areas where healthcare facilities are scarce and transportation to medical centers can take hours.
-              </p>
-              <p>
-                Many women give birth without skilled medical assistance, leading to preventable complications and deaths.
-              </p>
-              <p className="font-semibold text-lg">
-                Jacaranda Health: A Technology-Enabled Solution
-              </p>
-              <p>
-                Our investment in Jacaranda Health supports their mission to make quality maternal healthcare accessible and affordable through innovative technology and service delivery models.
-              </p>
-              <p>
-                Jacaranda operates a network of maternal health clinics that combine high-quality medical care with digital health solutions to reach more women in need.
-              </p>
-              <p className="font-semibold text-lg">
-                Scaling Impact
-              </p>
-              <p>
-                With our support, Jacaranda Health has expanded its network to serve over 15,000 mothers annually, with plans to reach 50,000 mothers by 2026.
-              </p>
-              <p>
-                The organization has achieved a 95% client satisfaction rate and significantly reduced maternal complications through early intervention and quality care.
-              </p>
-              <p className="text-gray-500">
-                #MaternalHealth #HealthcareAccess #Kenya #DigitalHealth
-              </p>
-            </div>
-          )
-        };
 
-      case 8:
-        return {
-          content: (
-            <div className="prose prose-lg max-w-none text-[#141d21] font-light space-y-6" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <p className="font-semibold text-lg">
-                Selected as a SIFI Innovator: Advancing Impact Finance for Global Goals
-              </p>
+              <h2
+                className="text-4xl font-normal"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                Certification & Cooperatives
+              </h2>
               <p>
-                iGravity and Helvetas are proud to be among the five impactful initiatives chosen in the third funding cycle of the Swiss Finance Institute (SIFI) Innovation Program.
+                Evidence from 1,700+ producers shows <strong>joint participation in certification + cooperatives</strong> delivers the strongest
+                sustainability outcomes (agroforestry, soil, IPM, sanitation). Context matters: Côte d’Ivoire benefits most from combined
+                approaches; in Ghana, certification alone shows significant positive effects.{` `}
+                <a className="text-[#84bfc7] underline" href="https://www.sciencedirect.com/science/article/pii/S0921800924001083" target="_blank" rel="noopener noreferrer">ScienceDirect</a>
               </p>
-              <p className="font-semibold text-lg">
-                The SIFI Innovation Program
-              </p>
-              <p>
-                The SIFI Innovation Program supports groundbreaking financial innovations that address global challenges and contribute to sustainable development goals.
-              </p>
-              <p>
-                This prestigious program brings together leading financial institutions, technology companies, and impact organizations to develop scalable solutions for pressing global issues.
-              </p>
-              <p className="font-semibold text-lg">
-                Our Innovation: Blended Finance for Rural Development
-              </p>
-              <p>
-                Our selected project focuses on developing innovative blended finance mechanisms that can unlock private capital for rural development initiatives in emerging markets.
-              </p>
-              <p>
-                By combining public and private funding sources, we aim to create sustainable financing models that can scale impact while generating appropriate returns for investors.
-              </p>
-              <p className="font-semibold text-lg">
-                Expected Impact
-              </p>
-              <p>
-                Through this initiative, we expect to mobilize over $50 million in additional private capital for rural development projects across Africa and Asia.
-              </p>
-              <p>
-                The program will directly benefit over 100,000 rural households through improved access to financial services, agricultural inputs, and market opportunities.
-              </p>
-              <p className="text-gray-500">
-                #SIFIInnovator #BlendedFinance #RuralDevelopment #Innovation
-              </p>
-            </div>
-          )
-        };
 
-      case 9:
-        return {
-          content: (
-            <div className="prose prose-lg max-w-none text-[#141d21] font-light space-y-6" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <p className="font-semibold text-lg">
-                Balim Investments Partners with Flow Uganda to Expand Financial Inclusion in Rural Areas
-              </p>
+              <h2
+                className="text-4xl font-normal"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                Agroforestry & Climate
+              </h2>
               <p>
-                Flow Uganda, a leading fintech empowering mobile money agents across the country, is the latest impactful addition to our growing portfolio of investments that are transforming financial access in underserved communities.
+                Transitioning from low-shade systems to agroforestry restores biodiversity and resilience while diversifying farmer income
+                (fruit/timber/medicinals). Scaling requires TA, finance, and markets for diversified outputs.
               </p>
-              <p className="font-semibold text-lg">
-                The Financial Inclusion Challenge
-              </p>
-              <p>
-                Despite significant progress in mobile money adoption across East Africa, many rural communities still lack reliable access to financial services.
-              </p>
-              <p>
-                Traditional banking infrastructure remains limited in remote areas, leaving millions of people without access to basic financial services like savings, credit, and insurance.
-              </p>
-              <p className="font-semibold text-lg">
-                Flow Uganda's Solution
-              </p>
-              <p>
-                Flow Uganda operates a network of trained mobile money agents who provide essential financial services directly to rural communities.
-              </p>
-              <p>
-                Their platform enables agents to offer a comprehensive suite of services including money transfers, bill payments, savings products, and micro-loans.
-              </p>
-              <p className="font-semibold text-lg">
-                Partnership Impact
-              </p>
-              <p>
-                Through our partnership, Flow Uganda has expanded its agent network by 300%, now serving over 50,000 customers across rural Uganda.
-              </p>
-              <p>
-                The platform has facilitated over $10 million in transactions, providing previously unbanked communities with access to formal financial services.
-              </p>
-              <p>
-                Our investment has also enabled Flow Uganda to develop new products specifically designed for rural customers, including agricultural insurance and crop financing.
-              </p>
-              <p className="text-gray-500">
-                #FinancialInclusion #Fintech #Uganda #MobileMoney
-              </p>
-            </div>
-          )
-        };
 
-      case 10:
-        return {
-          content: (
-            <div className="prose prose-lg max-w-none text-[#141d21] font-light space-y-6" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <p className="font-semibold text-lg">
-                Reimagining Impact: iGravity's New Theory of Change
-              </p>
+              <h2
+                className="text-4xl font-normal"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                Investment & Scaling
+              </h2>
               <p>
-                In impact investing, a Theory of Change (ToC) isn't just a framework—it's a roadmap that guides every investment decision and measures every outcome against our mission to create positive change.
+                Italy’s MAECI (Piano Mattei) supports Alliance Bioversity-CIAT programs in Côte d’Ivoire/Guinea to crowd-in finance, expand
+                market access, and reduce deforestation/child labor.{` `}
+                <a className="text-[#84bfc7] underline" href="https://alliancebioversityciat.org/stories/paving-way-sustainable-cocoa-value-chains-west-africa" target="_blank" rel="noopener noreferrer">Alliance Bioversity & CIAT</a>
               </p>
-              <p className="font-semibold text-lg">
-                Why Update Our Theory of Change?
-              </p>
-              <p>
-                As the impact investing landscape evolves and our understanding of systemic change deepens, we recognized the need to refine our approach to better reflect our learnings and ambitions.
-              </p>
-              <p>
-                Our updated Theory of Change incorporates insights from five years of impact investing, feedback from our portfolio companies, and emerging best practices in the field.
-              </p>
-              <p className="font-semibold text-lg">
-                Key Elements of Our New Framework
-              </p>
-              <p>
-                Our refreshed Theory of Change focuses on three core pillars: <strong>Systemic Impact</strong>, <strong>Financial Sustainability</strong>, and <strong>Stakeholder Engagement</strong>.
-              </p>
-              <p>
-                <strong>Systemic Impact:</strong> We target investments that address root causes of social and environmental challenges, not just symptoms.
-              </p>
-              <p>
-                <strong>Financial Sustainability:</strong> We ensure our portfolio companies can achieve long-term viability while maintaining their social mission.
-              </p>
-              <p>
-                <strong>Stakeholder Engagement:</strong> We actively involve beneficiaries, local communities, and other stakeholders in our investment process.
-              </p>
-              <p className="font-semibold text-lg">
-                Measuring What Matters
-              </p>
-              <p>
-                Our new framework introduces more sophisticated impact measurement tools that capture both quantitative outcomes and qualitative changes in the communities we serve.
-              </p>
-              <p>
-                We're moving beyond simple output metrics to focus on long-term outcomes and systemic change indicators.
-              </p>
-              <p className="text-gray-500">
-                #TheoryOfChange #ImpactMeasurement #SystemicChange #ImpactInvesting
-              </p>
-            </div>
-          )
-        };
 
-      case 11:
-        return {
-          content: (
-            <div className="prose prose-lg max-w-none text-[#141d21] font-light space-y-6" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <p className="font-semibold text-lg">
-                Latimpacto in Medellín Colombia 1st – 3rd September
-              </p>
-              <p>
-                Join us at Latimpacto 2025, Latin America's premier impact investing conference, taking place in the vibrant city of Medellín, Colombia from September 1st to 3rd.
-              </p>
-              <p className="font-semibold text-lg">
-                Why Latimpacto Matters
-              </p>
-              <p>
-                Latimpacto brings together the most influential voices in Latin American impact investing, from fund managers and institutional investors to social entrepreneurs and policy makers.
-              </p>
-              <p>
-                The conference provides a unique platform to explore the latest trends, share best practices, and forge partnerships that can accelerate positive change across the region.
-              </p>
-              <p className="font-semibold text-lg">
-                iGravity's Participation
-              </p>
-              <p>
-                Our team will be presenting on "Scaling Impact Through Blended Finance: Lessons from East Africa" on September 2nd at 2:00 PM.
-              </p>
-              <p>
-                We'll share insights from our work with the Refugee Investment Facility and discuss how blended finance mechanisms can be adapted for Latin American markets.
-              </p>
-              <p className="font-semibold text-lg">
-                Key Sessions to Attend
-              </p>
-              <p>
-                Don't miss the opening keynote on "The Future of Impact Investing in Latin America" and the panel discussion on "Climate Finance: Opportunities and Challenges."
-              </p>
-              <p>
-                The conference will also feature a startup pitch competition showcasing the most promising impact ventures from across the region.
-              </p>
-              <p className="font-semibold text-lg">
-                Connect with Us
-              </p>
-              <p>
-                If you're attending Latimpacto, we'd love to connect! Reach out to schedule a meeting to discuss potential partnerships and investment opportunities.
-              </p>
-              <p className="text-gray-500">
-                #Latimpacto2025 #ImpactInvesting #LatinAmerica #Medellín
-              </p>
+              <MetaRow
+                category="Case Studies – Cocoa"
+                published="December 30, 2024"
+                sourceLabel="EU Development Cooperation"
+                sourceHref="https://international-partnerships.ec.europa.eu/policies/programming/programmes/sustainable-cocoa-initiative_en"
+                tags={['Cocoa', 'Deforestation', 'Certification', 'EU', 'Agroforestry']}
+              />
             </div>
-          )
-        };
-
-      case 12:
-        return {
-          content: (
-            <div className="prose prose-lg max-w-none text-[#141d21] font-light space-y-6" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <p className="font-semibold text-lg">
-                Building Bridges 2025 in Geneva 30 Sept – 2 Oct
-              </p>
-              <p>
-                Building Bridges is Switzerland's flagship sustainable finance event, bringing together global leaders to discuss the future of sustainable investing and its role in addressing global challenges.
-              </p>
-              <p className="font-semibold text-lg">
-                Event Highlights
-              </p>
-              <p>
-                This year's conference focuses on "Accelerating the Transition: Finance for a Sustainable Future" with sessions covering climate finance, impact measurement, and regulatory developments.
-              </p>
-              <p>
-                The event attracts over 1,500 participants from around the world, including pension funds, asset managers, banks, and impact investors.
-              </p>
-              <p className="font-semibold text-lg">
-                iGravity's Session: Costs and Opportunities of Real Impact
-              </p>
-              <p>
-                On September 30th, our CEO will participate in a panel discussion titled "Costs and Opportunities of Real Impact: What It Takes for Impact-First Investments to Deliver."
-              </p>
-              <p>
-                The session will explore the trade-offs between financial returns and impact outcomes, sharing practical insights from our portfolio experience.
-              </p>
-              <p>
-                We'll discuss how impact-first investors can maintain high impact standards while achieving sustainable financial performance.
-              </p>
-              <p className="font-semibold text-lg">
-                Key Topics
-              </p>
-              <p>
-                The panel will cover impact measurement methodologies, the role of blended finance in scaling impact, and strategies for engaging institutional investors in impact-first opportunities.
-              </p>
-              <p>
-                We'll also share case studies from our work in emerging markets, highlighting both successes and lessons learned.
-              </p>
-              <p className="font-semibold text-lg">
-                Networking Opportunities
-              </p>
-              <p>
-                Building Bridges offers excellent networking opportunities with leading figures in sustainable finance. We'll be hosting a reception on October 1st for interested investors and partners.
-              </p>
-              <p className="text-gray-500">
-                #BuildingBridges2025 #SustainableFinance #Geneva #ImpactFirst
-              </p>
-            </div>
-          )
+          ),
         };
 
       default:
         return {
           content: (
-            <div className="prose prose-lg max-w-none text-[#141d21] font-light space-y-6" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <p className="font-semibold text-lg">
+            <div
+              className="prose prose-2xl max-w-none text-[#141d21] font-light space-y-6"
+              style={{ fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+            >
+              <p
+                className="text-4xl font-semibold"
+                style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
                 {post.title}
               </p>
-              <p>
-                {post.excerpt}
-              </p>
-              <p>
-                This is a detailed view of the selected post. Content would be dynamically loaded based on the post data.
-              </p>
-              <p className="text-gray-500">
-                #ImpactInvestment #SustainableDevelopment
-              </p>
+              <p>{post.excerpt}</p>
+              <p>This is a detailed view of the selected post. Content is loaded based on the post data.</p>
+              <p className="text-gray-500">#ImpactInvestment #SustainableDevelopment</p>
             </div>
-          )
+          ),
         };
     }
   };
@@ -527,7 +513,7 @@ const PostPage: React.FC<PostPageProps> = ({ post }) => {
 
   return (
     <div className="single-post">
-      {/* Hero Image Section - Responsive sizing */}
+      {/* Hero Image Section */}
       <div className="py-8 md:py-12">
         <div className="container mx-auto px-6 xl:px-12">
           <div className="max-w-4xl mx-auto">
@@ -544,15 +530,27 @@ const PostPage: React.FC<PostPageProps> = ({ post }) => {
       <div className="container mx-auto px-6 xl:px-12 py-8 md:py-12">
         <div className="max-w-3xl mx-auto">
           {postContent.content}
-          
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <p className="font-semibold text-lg mb-4">About iGravity</p>
+
+          {/* About Section */}
+          <div className="mt-12 pt-8 border-t border-gray-200"
+               style={{ fontFamily: 'Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif' }}>
+            <p
+              className="font-semibold text-4xl mb-4"
+              style={{ fontFamily: 'IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+            >
+              About Ophel Holdings
+            </p>
             <p>
-              iGravity is a leading impact investment firm focused on creating positive social and environmental outcomes while delivering strong financial returns. 
-              We work with innovative enterprises across emerging markets to scale their impact and reach.
+              Ophel Holdings is a diversified investment and development company dedicated to building sustainable
+              businesses across Africa. We focus on strategic sectors such as agriculture, renewable energy,
+              real estate, and technology—driving inclusive growth and long-term value creation.
             </p>
             <p className="mt-4">
-              <a href="#" className="text-[#84bfc7] underline font-semibold">Learn more about our work</a>
+              Through strategic partnerships, innovation, and responsible leadership, Ophel Holdings supports
+              enterprises that empower communities and contribute to regional economic transformation.
+            </p>
+            <p className="mt-4">
+              <a href="#" className="text-[#84bfc7] underline font-semibold">Learn more about our initiatives</a>
             </p>
             <p>
               <a href="#" className="text-[#84bfc7] underline font-semibold">Follow us on LinkedIn</a>

@@ -39,10 +39,10 @@ export const teamData = [
         bio: "James oversees operational excellence and strategic implementation. With a deep understanding of sustainable business practices, he ensures that all operations align with Ophel Holdings' mission of creating regenerative impact across supply chains."
       },
       {
-        name: "Joshua Katamba Mugagga",
+        name: "Dionisio Chavito Massanga",
         title: "Operations Manager",
-        imageUrl: "/Operations Joshua.jpg",
-        bio: "Joshua leads day-to-day operations and process optimization. He specializes in implementing efficient systems and ensuring seamless coordination between teams to deliver on our sustainability commitments and operational goals."
+        imageUrl: "/Dionisio Chavito Massanga.jpg",
+        bio: "Chavito leads day-to-day operations and process optimization. He specializes in implementing efficient systems and ensuring seamless coordination between teams to deliver on our sustainability commitments and operational goals."
       }
     ] as TeamMember[]
   }

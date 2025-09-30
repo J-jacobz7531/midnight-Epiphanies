@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const navItems = [
   { 
@@ -22,7 +22,7 @@ const navItems = [
   { name: 'Impact', href: '/impact' },
   { name: 'News', href: '/news' },
   { name: 'Contact', href: '/contact' },
-  { name: 'Careers', href: '#' },
+//   { name: 'Careers', href: '#' },
 ];
 
 const LinkedInIcon = () => (
@@ -38,8 +38,42 @@ const ChevronDownIcon = ({ className }: { className?: string }) => (
 );
 
 
+// Custom navigation component with reload/redirect functionality
+const SmartNavLink: React.FC<{
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
+  role?: string;
+}> = ({ href, children, className, onClick, role }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // If we're already on the target page, reload it
+    if (location.pathname === href) {
+      window.location.reload();
+    } else {
+      // Otherwise, navigate to the page
+      navigate(href);
+    }
+    
+    // Call any additional onClick handler
+    onClick?.();
+  };
+
+  return (
+    <a href={href} onClick={handleClick} className={className} role={role}>
+      {children}
+    </a>
+  );
+};
+
 const Header: React.FC = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -70,9 +104,9 @@ const Header: React.FC = () => {
                                     <div className="absolute top-full left-0 mt-4 w-56 bg-ig-dark shadow-lg rounded-sm py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0" role="menu">
                                         {item.subMenu.map((subItem) => (
                                             subItem.href.startsWith('/') ? (
-                                                <Link key={subItem.name} to={subItem.href} className="block w-full text-left px-4 py-2 text-sm text-white opacity-75 hover:opacity-100 hover:bg-ig-dark-gray transition-colors" role="menuitem">
+                                                <SmartNavLink key={subItem.name} href={subItem.href} className="block w-full text-left px-4 py-2 text-sm text-white opacity-75 hover:opacity-100 hover:bg-ig-dark-gray transition-colors" role="menuitem">
                                                     {subItem.name}
-                                                </Link>
+                                                </SmartNavLink>
                                             ) : (
                                                 <a key={subItem.name} href={subItem.href} className="block w-full text-left px-4 py-2 text-sm text-white opacity-75 hover:opacity-100 hover:bg-ig-dark-gray transition-colors" role="menuitem">
                                                     {subItem.name}
@@ -83,9 +117,9 @@ const Header: React.FC = () => {
                                 </div>
                             ) : (
                                 item.href.startsWith('/') ? (
-                                    <Link key={item.name} to={item.href} className="text-white font-medium text-sm tracking-tight opacity-75 hover:opacity-100 transition-opacity uppercase font-sans">
+                                    <SmartNavLink key={item.name} href={item.href} className="text-white font-medium text-sm tracking-tight opacity-75 hover:opacity-100 transition-opacity uppercase font-sans">
                                         {item.name}
-                                    </Link>
+                                    </SmartNavLink>
                                 ) : (
                                     <a key={item.name} href={item.href} className="text-white font-medium text-sm tracking-tight opacity-75 hover:opacity-100 transition-opacity uppercase font-sans">
                                         {item.name}

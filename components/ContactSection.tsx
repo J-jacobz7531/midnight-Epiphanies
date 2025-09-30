@@ -89,7 +89,6 @@ const ContactSection: React.FC = () => {
     secondName: '',
     company: '',
     email: '',
-    department: 'General Inquiry',
     message: '',
   });
   
@@ -162,7 +161,6 @@ const ContactSection: React.FC = () => {
                 <InputField label="Second Name" name="secondName" value={formData.secondName} onChange={handleChange} error={errors.secondName} />
                 <InputField label="Company" name="company" value={formData.company} onChange={handleChange} error={errors.company} />
                 <InputField label="Email" name="email" value={formData.email} onChange={handleChange} error={errors.email} type="email" />
-                <SelectField label="Department" name="department" value={formData.department} onChange={handleChange} error={errors.department} />
                 <TextAreaField label="Your message" name="message" value={formData.message} onChange={handleChange} error={errors.message} />
                 
                 <div>
