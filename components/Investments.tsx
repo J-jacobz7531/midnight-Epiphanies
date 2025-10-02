@@ -21,10 +21,11 @@ const ProductsHero: React.FC = () => {
           {/* Sub copy */}
           <div className="lg:w-8/12 flex items-start">
             <p className="font-sans text-[15px] leading-7 text-[#cfd6d4]">
-              Natural, traceable, low-carbon ingredients with verified impact across cocoa, coffee,
-              sesame, vanilla, and maize. We combine direct farmer partnerships, regenerative
-              practices, and third-party verification to deliver the quality your products demand —
-              and the transparency your customers expect.
+              We are a global leader in natural food and beverage ingredients, sourcing from over 300 farmers 
+              and operating in 5 countries impacting more than 500 families. Our portfolio spans cocoa, coffee, 
+              sesame, vanilla, and maize, with 10+ manufacturing facilities worldwide. Beyond business, we are 
+              pioneers at heart— committed to making sustainability real for our customers by empowering farmers, 
+              building thriving communities, driving climate action, and regenerating the living world.
             </p>
           </div>
         </div>
@@ -193,13 +194,13 @@ const assuranceBullets = [
 ];
 
 const impactStats = [
-  { label: 'Farmers in network', value: '0.4M+' },
-  { label: 'Countries', value: '~50' },
-  { label: 'Farmers in sustainability programs', value: '10,000+' },
+  { label: 'Farmers in network', value: '300+' },
+  { label: 'Countries', value: '5' },
+  { label: 'Families impacted', value: '500+' },
+  { label: 'Manufacturing facilities', value: '10+' },
   { label: 'Scope 1–2 reduction target', value: '>50%' },
   { label: 'Scope 3 reduction target', value: '>30%' },
   { label: 'Regenerative agriculture goal', value: '10,000 ha' },
-  { label: 'Trees distributed goal', value: '2M' },
 ];
 
 /* =========================
@@ -290,18 +291,18 @@ const ProductsSection: React.FC = () => {
                   Regenerative Agriculture
                 </h3>
                 <p className="text-[#cfd6d4] text-lg leading-relaxed mb-6">
-                  We partner directly with farmers to implement regenerative practices that restore soil health, 
-                  increase biodiversity, and sequester carbon — creating ingredients that perform better for your 
-                  products and the planet.
+                  As pioneers at heart, we partner directly with farmers to implement regenerative practices that 
+                  restore soil health, increase biodiversity, and sequester carbon — empowering farmers, building 
+                  thriving communities, and creating ingredients that perform better for your products and the planet.
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-[#cbb67c] rounded-full mt-2 flex-shrink-0" />
-                    <p className="text-[#cfd6d4]">Direct farmer partnerships across 50+ countries</p>
+                    <p className="text-[#cfd6d4]">Direct partnerships with 300+ farmers across 5 countries</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-[#cbb67c] rounded-full mt-2 flex-shrink-0" />
-                    <p className="text-[#cfd6d4]">10,000+ farmers in sustainability programs</p>
+                    <p className="text-[#cfd6d4]">Impacting more than 500 farming families</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-[#cbb67c] rounded-full mt-2 flex-shrink-0" />

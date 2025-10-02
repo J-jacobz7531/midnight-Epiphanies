@@ -1,7 +1,10 @@
-
 import React from 'react';
 
 const Footer: React.FC = () => {
+  const emailAddress = "info@ophelholdings.org"; // <--- This is your desired email
+  const emailSubject = "Inquiry from Ophel Holdings Website";
+  const outlookWebMailLink = `https://outlook.live.com/mail/0/deeplink/compose?to=${emailAddress}&subject=${encodeURIComponent(emailSubject)}`;
+
   return (
     <footer className="bg-ig-dark text-ig-off-white pt-24 md:pt-32 pb-16">
       <div className="container mx-auto px-6 lg:px-12">
@@ -18,7 +21,18 @@ const Footer: React.FC = () => {
 
             <div className="text-gray-300 font-light leading-relaxed mb-6">
               <p>For inquiries, collaborations, or more information, reach out to us:</p>
-              <a href="mailto:impact@igravity.net" className="text-ig-accent-teal hover:text-white underline">ophel@holdings.org</a>
+              {/* This link uses info@ophelholdings.org */}
+              <a href={`mailto:${emailAddress}?subject=${encodeURIComponent(emailSubject)}`} 
+                 className="text-ig-accent-teal hover:text-white underline mr-4">
+                Email Us (Preferred client)
+              </a>
+              {/* This link also uses info@ophelholdings.org */}
+              <a href={outlookWebMailLink} 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 className="text-ig-accent-teal hover:text-white underline">
+                info@ophelholdings.org
+              </a>
               <p className="mt-2 text-sm">Brisbane | Kampala | Luanda </p>
             </div>
             

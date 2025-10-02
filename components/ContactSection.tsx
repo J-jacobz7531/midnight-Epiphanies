@@ -138,8 +138,8 @@ const ContactSection: React.FC = () => {
             
             <div className="text-gray-300 font-light leading-relaxed mb-6">
               <p>For inquiries, collaborations, or more information, reach out to us:</p>
-              <a href="mailto:impact@ophelholdings.com" className="text-ig-accent-teal hover:text-white underline">impact@ophelholdings.com</a>
-              <p className="mt-2 text-sm">Zurich | Milan | Kampala | Nairobi | Bogotá</p>
+              <a href="mailto:info@ophelholdings.org" className="text-ig-accent-teal hover:text-white underline">info@ophelholdings.org</a>
+              <p className="mt-2 text-sm">Brisbane | Kampala | Luanda</p>
             </div>
             
             <div>
