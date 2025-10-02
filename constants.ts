@@ -7,7 +7,7 @@ export const teamData = [
       {
         name: "Edwin Sabitti",
         title: "Co-Founder & Chief Executive Officer",
-        imageUrl: "/Founder Edwin.jpg",
+        imageUrl: "/Sabitti.jpg",
         bio: "Edwin is a visionary leader passionate about transforming global food systems through sustainable sourcing and regenerative agriculture. With extensive experience in supply chain innovation, he drives Ophel Holdings' mission to bridge purpose and performance."
       },
       {
@@ -22,10 +22,16 @@ export const teamData = [
     title: "Investment Team",
     members: [
       {
-        name: "Victor Starr Kramer",
+        name: "Mahinga JC",
         title: "Senior Investment Advisor",
+        imageUrl: "/Director.jpeg",
+        bio: "Director Mahinga JC brings extensive experience in impact investing and sustainable finance. He specializes in identifying transformative investment opportunities that align with environmental and social impact goals while delivering strong financial returns."
+      },
+      {
+        name: "Victor Starr Kramer",
+        title: "Investment Advisor",
         imageUrl: "/Victor Starr Kramer.jpeg",
-        bio: "Victor brings extensive experience in impact investing and sustainable finance. He specializes in identifying transformative investment opportunities that align with environmental and social impact goals while delivering strong financial returns."
+        bio: "Victor brings extensive experience and network in impact investing and sustainable finance. His expertise in commodity trade is unmatched."
       }
     ] as TeamMember[]
   },
@@ -35,13 +41,13 @@ export const teamData = [
       {
         name: "James Israel Mayanja",
         title: "Operations Manager",
-        imageUrl: "/Founder Jamie.png",
+        imageUrl: "/Jamie.png",
         bio: "James oversees operational excellence and strategic implementation. With a deep understanding of sustainable business practices, he ensures that all operations align with Ophel Holdings' mission of creating regenerative impact across supply chains."
       },
       {
         name: "Dionisio Chavito Massanga",
         title: "Operations Manager",
-        imageUrl: "/Dionisio Chavito Massanga.jpg",
+        imageUrl: "/Chavito.jpg",
         bio: "Chavito leads day-to-day operations and process optimization. He specializes in implementing efficient systems and ensuring seamless coordination between teams to deliver on our sustainability commitments and operational goals."
       }
     ] as TeamMember[]

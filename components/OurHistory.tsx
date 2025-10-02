@@ -84,9 +84,9 @@ const StorySection: React.FC = () => (
         <div className="w-full lg:w-1/4 flex justify-center lg:justify-end">
           {/* Avoid spaces in filenames — use /founder-jordan.jpg in /public */}
           <img
-            src="/Founder Jordan.JPG"
-            alt="Founder portrait"
-            className="w-full max-w-[280px] h-auto rounded-lg shadow-xl"
+            src="/Rubofa1.png" 
+            alt="Founder Jordan Muhwezi"
+            className="w-full max-w-[1120px] h-auto rounded-lg shadow-xl"
           />
         </div>
       </div>
