@@ -14,6 +14,30 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      build:{
+        outDir: '../Live',
+        emptyOutDir: true,
+        // Performance optimizations
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              vendor: ['react', 'react-dom'],
+              router: ['react-router-dom'],
+              helmet: ['react-helmet-async'],
+            },
+          },
+        },
+        // Enable source maps for production debugging
+        sourcemap: false,
+        // Optimize chunk size
+        chunkSizeWarningLimit: 1000,
+      },
+      // Optimize dev server
+      server: {
+        hmr: {
+          overlay: false
+        }
       }
     };
 });

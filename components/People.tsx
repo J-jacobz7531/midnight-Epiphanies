@@ -2,6 +2,9 @@ import React from 'react';
 import Footer from '@/components/Footer';
 import TeamSection from '@/components/TeamSection';
 import { teamData } from '@/constants';
+import SEOHead from './seo/SEOHead';
+import { pageConfigs } from './seo/seoConfig';
+import { StructuredData, createBreadcrumbSchema } from './seo/StructuredData';
 
 // A new, cleaner Hero component defined directly within People.tsx for simplicity
 const PeopleHero: React.FC = () => {
@@ -20,8 +23,16 @@ const PeopleHero: React.FC = () => {
 };
 
 const People: React.FC = () => {
+  const breadcrumbs = [
+    { name: 'Home', url: 'https://ophelholdings.org/' },
+    { name: 'People', url: 'https://ophelholdings.org/people' }
+  ];
+
   return (
     <div className="font-sans antialiased bg-brand-light">
+      <SEOHead {...pageConfigs.people} />
+      <StructuredData data={createBreadcrumbSchema(breadcrumbs)} />
+      
       <main>
         <PeopleHero />
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-24">

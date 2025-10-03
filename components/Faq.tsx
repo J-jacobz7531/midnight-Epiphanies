@@ -1,6 +1,9 @@
 import React from 'react';
 import FaqSection from './FaqSection';
 import Footer from './Footer';
+import SEOHead from './seo/SEOHead';
+import { pageConfigs } from './seo/seoConfig';
+import { StructuredData, createBreadcrumbSchema, createFAQSchema } from './seo/StructuredData';
 
 const FaqHero: React.FC = () => {
   return (
@@ -26,8 +29,39 @@ const FaqHero: React.FC = () => {
 };
 
 const Faq: React.FC = () => {
+  const breadcrumbs = [
+    { name: 'Home', url: 'https://ophelholdings.org/' },
+    { name: 'FAQ', url: 'https://ophelholdings.org/faq' }
+  ];
+
+  // Sample FAQ data for schema - you can expand this with actual FAQ content
+  const faqData = [
+    {
+      question: "What is impact investing?",
+      answer: "Impact investing is an investment approach that intentionally seeks to generate positive, measurable social and environmental impact alongside financial returns."
+    },
+    {
+      question: "How does Ophel Holdings support sustainable finance?",
+      answer: "We connect responsible finance with sustainable growth by providing advisory services, investment opportunities, and supporting climate-smart businesses across Africa."
+    },
+    {
+      question: "What sectors does Ophel Holdings focus on?",
+      answer: "We focus on sustainable agriculture, renewable energy, responsible sourcing, and other sectors that contribute to environmental and social impact."
+    },
+    {
+      question: "How can I get involved with Ophel Holdings?",
+      answer: "You can contact us through our website to discuss investment opportunities, partnerships, or advisory services related to impact investing and sustainable finance."
+    }
+  ];
+
   return (
     <div className="bg-ig-off-white text-ig-dark">
+      <SEOHead {...pageConfigs.faq} />
+      <StructuredData data={[
+        createBreadcrumbSchema(breadcrumbs),
+        createFAQSchema(faqData)
+      ]} />
+      
       <FaqHero />
       <main>
         <FaqSection />

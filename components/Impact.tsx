@@ -4,6 +4,9 @@ import FiveStepsSection from './FiveStepsSection';
 import ImpactThemesSection from './ImpactThemesSection';
 import LeveragingSection from './LeveragingSection';
 import Footer from './Footer';
+import SEOHead from './seo/SEOHead';
+import { pageConfigs } from './seo/seoConfig';
+import { StructuredData, createBreadcrumbSchema } from './seo/StructuredData';
 
 const ImpactHero: React.FC = () => {
   return (
@@ -29,8 +32,16 @@ const ImpactHero: React.FC = () => {
 };
 
 const Impact: React.FC = () => {
+  const breadcrumbs = [
+    { name: 'Home', url: 'https://ophelholdings.org/' },
+    { name: 'Impact', url: 'https://ophelholdings.org/impact' }
+  ];
+
   return (
     <div className="bg-ig-off-white text-ig-dark">
+      <SEOHead {...pageConfigs.impact} />
+      <StructuredData data={createBreadcrumbSchema(breadcrumbs)} />
+      
       <ImpactHero />
       <main>
         <AboutSection />

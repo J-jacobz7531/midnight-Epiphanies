@@ -1,10 +1,21 @@
 import React from 'react';
 import Footer from './Footer';
 import { VisionIcon, PurposeIcon, StrategyIcon } from './Icons';
+import SEOHead from './seo/SEOHead';
+import { pageConfigs } from './seo/seoConfig';
+import { StructuredData, createBreadcrumbSchema } from './seo/StructuredData';
 
 const OurHistory: React.FC = () => {
+  const breadcrumbs = [
+    { name: 'Home', url: 'https://ophelholdings.org/' },
+    { name: 'Our History', url: 'https://ophelholdings.org/our-history' }
+  ];
+
   return (
     <div className="bg-[#313A3C] font-['Poppins']">
+      <SEOHead {...pageConfigs.about} />
+      <StructuredData data={createBreadcrumbSchema(breadcrumbs)} />
+      
       <main>
         <HeroSection />
         <StorySection />

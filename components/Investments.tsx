@@ -1,5 +1,8 @@
 import React from 'react';
 import Footer from './Footer';
+import SEOHead from './seo/SEOHead';
+import { pageConfigs } from './seo/seoConfig';
+import { StructuredData, createBreadcrumbSchema } from './seo/StructuredData';
 
 /* =========================
    Hero (Products)
@@ -377,8 +380,16 @@ const ProductsSection: React.FC = () => {
    Page
    ========================= */
 const Products: React.FC = () => {
+  const breadcrumbs = [
+    { name: 'Home', url: 'https://ophelholdings.org/' },
+    { name: 'Investments', url: 'https://ophelholdings.org/investments' }
+  ];
+
   return (
     <div className="bg-[#f2f2f0] text-[#141d21]">
+      <SEOHead {...pageConfigs.investments} />
+      <StructuredData data={createBreadcrumbSchema(breadcrumbs)} />
+      
       <ProductsHero />
       <main>
         <ProductsSection />

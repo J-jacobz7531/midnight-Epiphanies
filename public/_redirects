@@ -1,0 +1,12 @@
+# Redirect HTTP to HTTPS
+http://ophelholdings.org/* https://ophelholdings.org/:splat 301!
+http://www.ophelholdings.org/* https://ophelholdings.org/:splat 301!
+https://www.ophelholdings.org/* https://ophelholdings.org/:splat 301!
+
+# Legacy redirects (if any old URLs need redirecting)
+/about /our-history 301
+/team /people 301
+/services /products 301
+
+# SPA fallback - must be last
+/*    /index.html   200
