@@ -18,10 +18,10 @@ const OurHistory: React.FC = () => {
 
 const HeroSection: React.FC = () => (
   <section 
-    className="relative top-0 left-0 w-full h-screen min-h-[700px] flex items-center justify-center text-white bg-[#141d21] pt-24" 
+    className="relative w-full min-h-screen flex items-center justify-center text-white bg-[#141d21] pt-40 sm:pt-44 md:pt-48 lg:pt-52" 
     style={{ 
-      paddingTop: 'calc(100vw * 0.10)', 
-      paddingBottom: 'calc(100vw * 0.20)', 
+      paddingTop: 'max(10rem, calc(100vw * 0.08))',
+      paddingBottom: 'calc(100vw * 0.05', 
     }}
   >
     <div className="absolute inset-0 bg-black opacity-30 z-0"></div>

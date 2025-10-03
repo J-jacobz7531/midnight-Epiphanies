@@ -20,15 +20,15 @@ const Footer: React.FC = () => {
       className="bg-ig-dark text-ig-off-white pt-24 md:pt-32 pb-16"
       aria-labelledby="footer-heading"
     >
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8">
           {/* Brand Section */}
           <div className="md:col-span-4">
             <a href="/" aria-label="Ophel Holdings Home">
               <img
                 src="/OphelHoldings.png"
                 alt="Ophel Holdings Logo"
-                className="w-48 md:w-64 lg:w-80 h-auto mb-6"
+                className="w-32 sm:w-48 md:w-64 lg:w-80 h-auto mb-6"
                 loading="lazy"
               />
             </a>
@@ -48,11 +48,11 @@ const Footer: React.FC = () => {
           <div className="md:col-span-8">
             <h2
               id="footer-heading"
-              className="font-serif text-4xl md:text-5xl font-light mb-2"
+              className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2"
             >
-              Let’s Connect!
+              Let's Connect!
             </h2>
-            <p className="text-gray-300 font-light mb-6">
+            <p className="text-gray-300 font-light mb-6 text-sm sm:text-base">
               Join our network of game changers.
             </p>
 
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
                 For inquiries, collaborations, or more information, reach out to us:
               </p>
 
-              <div className="flex items-center gap-4 mt-4">
+              <div className="flex items-center gap-3 sm:gap-4 mt-4">
                 {/* ✅ Gmail Icon Button */}
                 <a
                   href={gmailComposeHref}
@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
                   <img
                     src="/gmail.png"
                     alt="Gmail"
-                    className="w-9 h-9 md:w-10 md:h-10 hover:opacity-90"
+                    className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 hover:opacity-90"
                     loading="lazy"
                   />
                 </a>
@@ -89,14 +89,14 @@ const Footer: React.FC = () => {
                   <img
                     src="/outlook.png"
                     alt="Outlook"
-                    className="w-9 h-9 md:w-10 md:h-10 hover:opacity-90"
+                    className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 hover:opacity-90"
                     loading="lazy"
                   />
                 </a>
 
                 {/* ✅ LinkedIn Icon Button */}
                 <a
-                  href="https://ch.linkedin.com/company/igravity"
+                  href="https://www.linkedin.com/in/jordan-muhwezi-8aaa5637a/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-transform hover:scale-110"
@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
                   <img
                     src="/Link.png"
                     alt="LinkedIn"
-                    className="w-9 h-9 md:w-10 md:h-10 hover:opacity-90"
+                    className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 hover:opacity-90"
                     loading="lazy"
                   />
                 </a>

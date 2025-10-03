@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import MobileMenu from './MobileMenu';
 
 const navItems = [
   { 
@@ -73,6 +74,7 @@ const SmartNavLink: React.FC<{
 
 const Header: React.FC = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
 
     useEffect(() => {
@@ -86,10 +88,10 @@ const Header: React.FC = () => {
     return (
         <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-ig-dark shadow-lg' : 'bg-transparent'}`}>
             <div className="container mx-auto px-6 lg:px-12">
-                <div className="flex justify-between items-center h-24 md:h-32">
+                <div className="flex justify-between items-center h-20 sm:h-24 md:h-28 lg:h-36">
                     <div className="flex-shrink-0">
                         <Link to="/">
-                            <img className="h-30 md:h-40 w-auto" src="/OphelHoldings.png" alt="Ophel Holdings logo" />
+                            <img className="h-16 sm:h-20 md:h-24 lg:h-32 w-auto" src="/OphelHoldings.png" alt="Ophel Holdings logo" />
                         </Link>
                     </div>
 
@@ -136,7 +138,11 @@ const Header: React.FC = () => {
                     </div>
 
                     <div className="lg:hidden">
-                        <button className="text-white focus:outline-none">
+                        <button 
+                            onClick={() => setIsMobileMenuOpen(true)}
+                            className="text-white focus:outline-none hover:text-gray-300 transition-colors"
+                            aria-label="Open mobile menu"
+                        >
                             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
                             </svg>
@@ -144,6 +150,12 @@ const Header: React.FC = () => {
                     </div>
                 </div>
             </div>
+
+            <MobileMenu 
+                isOpen={isMobileMenuOpen}
+                onClose={() => setIsMobileMenuOpen(false)}
+                navItems={navItems}
+            />
         </header>
     );
 };

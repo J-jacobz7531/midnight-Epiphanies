@@ -15,7 +15,7 @@ const Home: React.FC = () => {
       <div className="relative z-10">
         <WhatWeDo />
         <NewsInsights />
-        <RealChange />
+        {/* <RealChange /> */}
         <Connect />
         <Footer />
       </div>

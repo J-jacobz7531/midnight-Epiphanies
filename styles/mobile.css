@@ -1,0 +1,167 @@
+/* Mobile Responsive Styles for OphelHoldings */
+
+/* Base Mobile Styles */
+@media (max-width: 640px) {
+  /* Ensure text is readable on mobile */
+  body {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Prevent horizontal scroll */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Mobile-friendly touch targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Responsive images */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Mobile navigation improvements */
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 40;
+  }
+
+  /* Focus cards mobile optimization */
+  .focus-cards-container {
+    padding: 0 8px;
+    height: 300px !important;
+  }
+
+  .focus-card {
+    min-width: 60px;
+  }
+
+  .focus-card.active {
+    flex: 4 !important;
+  }
+
+  .focus-card:not(.active) {
+    flex: 1 !important;
+  }
+
+  /* Coffee section mobile spacing */
+  .coffee-section {
+    padding: 2rem 1rem;
+  }
+
+  /* Footer mobile improvements */
+  .footer-icons {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .footer-icon {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  /* Hero section mobile text */
+  .hero-text {
+    font-size: 2rem !important;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .hero-rotating-text {
+    font-size: 1.5rem !important;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .focus-cards-container {
+    height: 400px;
+    padding: 0 16px;
+  }
+
+  .hero-text {
+    font-size: 4rem;
+  }
+
+  .hero-rotating-text {
+    font-size: 2.5rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  .hover\\:scale-110:hover {
+    transform: none;
+  }
+
+  .hover\\:opacity-90:hover {
+    opacity: 1;
+  }
+
+  /* Focus cards touch optimization */
+  .focus-card {
+    transition: all 0.3s ease;
+  }
+
+  /* Make buttons more touch-friendly */
+  button {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 896px) and (orientation: landscape) {
+  .hero-section {
+    height: 100vh;
+  }
+
+  .mobile-menu {
+    width: 320px;
+    max-width: 80vw;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 375px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .focus-cards-container {
+    gap: 4px;
+    height: 250px !important;
+  }
+
+  .hero-text {
+    font-size: 1.75rem !important;
+  }
+
+  .hero-rotating-text {
+    font-size: 1.25rem !important;
+  }
+
+  .coffee-info-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .coffee-info-button {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Connect: React.FC = () => {
     return (
@@ -13,12 +14,12 @@ const Connect: React.FC = () => {
                             </h2>
                         </div>
                         <div className="text-right">
-                            <a href="#" className="inline-flex items-center font-sans font-medium text-sm text-ig-off-white group/link">
+                            <Link to="/news" className="inline-flex items-center font-sans font-medium text-sm text-ig-off-white group/link hover:text-ig-accent-teal transition-colors duration-300">
                                 Learn more
                                 <svg className="ml-2 w-5 h-5 transition-transform duration-300 group-hover/link:translate-x-2" aria-hidden="true" width="20px" height="25px" viewBox="0 0 50 80" xmlSpace="preserve">
                                     <polyline stroke="currentColor" strokeWidth="9" fill="none" strokeLinecap="round" strokeLinejoin="round" points="0, 0 45, 40 0, 80" />
                                 </svg>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

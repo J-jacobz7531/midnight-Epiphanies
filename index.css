@@ -1,6 +1,10 @@
+/* Tailwind CSS directives - these are processed by Tailwind, not standard CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Import mobile responsive styles */
+@import './styles/mobile.css';
 
 /* Custom styles */
 body {

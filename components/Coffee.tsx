@@ -76,27 +76,27 @@ const CoffeeInfoSection: React.FC = () => {
   };
 
   return (
-    <section className="bg-white min-h-screen flex items-center justify-center font-sans text-black py-16">
-      <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center px-8">
+    <section className="bg-white min-h-screen flex items-center justify-center font-sans text-black py-8 sm:py-16">
+      <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center px-4 sm:px-6 lg:px-8">
         
         {/* Left Section */}
         <div className="flex flex-col">
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
             ARABICA VS ROBUSTA
           </h1>
-          <p className="text-gray-600 mt-6 text-lg leading-relaxed">
+          <p className="text-gray-600 mt-4 sm:mt-6 text-base sm:text-lg leading-relaxed">
             There are two main varieties of coffee beans in the world: Coffee Arabica, and Coffee Robusta. More than three-quarters of beans that are sold in the world today are Coffee Arabica, while the remaining are Coffee Robusta.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 mt-10">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-10">
             <button 
               onClick={handleExploreVarieties}
-              className="bg-black text-white font-semibold py-3 px-8 rounded-xl hover:bg-gray-800 transition-colors duration-300 transform hover:scale-105"
+              className="bg-black text-white font-semibold py-2.5 sm:py-3 px-6 sm:px-8 rounded-xl hover:bg-gray-800 transition-colors duration-300 transform hover:scale-105 text-sm sm:text-base"
             >
               Explore Varieties
             </button>
             <button 
               onClick={handleTalkToUs}
-              className="bg-white text-black border border-gray-300 font-semibold py-3 px-8 rounded-xl hover:bg-gray-100 transition-colors duration-300 transform hover:scale-105"
+              className="bg-white text-black border border-gray-300 font-semibold py-2.5 sm:py-3 px-6 sm:px-8 rounded-xl hover:bg-gray-100 transition-colors duration-300 transform hover:scale-105 text-sm sm:text-base"
             >
               Talk to us
             </button>
@@ -104,22 +104,22 @@ const CoffeeInfoSection: React.FC = () => {
         </div>
 
         {/* Right Section */}
-        <div className="relative lg:pl-16">
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-repeat-y bg-[length:1px_8px]" style={{backgroundImage: 'linear-gradient(to bottom, #d1d5db 50%, transparent 50%)'}}></div>
-          <div className="flex flex-col gap-12">
+        <div className="relative lg:pl-16 mt-8 lg:mt-0">
+          <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-px bg-repeat-y bg-[length:1px_8px]" style={{backgroundImage: 'linear-gradient(to bottom, #d1d5db 50%, transparent 50%)'}}></div>
+          <div className="flex flex-col gap-8 sm:gap-12">
             
             {/* Arabica Section */}
             <div>
-              <h2 className="text-xl font-semibold text-black mb-3">ARABICA COFFEE BEANS</h2>
-              <p className="text-gray-600 leading-relaxed">
+              <h2 className="text-lg sm:text-xl font-semibold text-black mb-2 sm:mb-3">ARABICA COFFEE BEANS</h2>
+              <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                 The Arabica coffee bean is the most popular type of coffee which is considered of a higher quality, hence the baptism of gourmet coffee. It has a half the amount of caffeine as Robusta and a more pleasing taste and a smoother aromatic property with a sweeter and more complex flavour than Robusta.
               </p>
             </div>
             
             {/* Robusta Section */}
             <div>
-              <h2 className="text-xl font-semibold text-black mb-3">ROBUSTA COFFEE BEANS</h2>
-              <p className="text-gray-600 leading-relaxed">
+              <h2 className="text-lg sm:text-xl font-semibold text-black mb-2 sm:mb-3">ROBUSTA COFFEE BEANS</h2>
+              <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                 Robusta coffee beans are of a lower grade than Arabica making them cheaper. They are typically grown at lower elevations. They are easier to grow and maintain: more disease resistant, easier to tend to on the farm and have higher yield.
               </p>
             </div>
