@@ -16,3 +16,11 @@ export interface TeamMember {
     imageUrl: string;
     bio?: string;
 }
+
+export interface CoffeeVariety {
+    id: number;
+    name: string;
+    type: string;
+    notes: string;
+    imageUrl: string;
+}

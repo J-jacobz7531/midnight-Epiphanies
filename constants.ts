@@ -49,6 +49,18 @@ export const teamData = [
         title: "Operations Manager",
         imageUrl: "/Chavito.jpg",
         bio: "Chavito leads day-to-day operations and process optimization. He specializes in implementing efficient systems and ensuring seamless coordination between teams to deliver on our sustainability commitments and operational goals."
+      },
+      {
+        name: "Joshua Katamba Mugagga",
+        title: "Sales Manager",
+        imageUrl: "/JKM.jpg",
+        bio: "Joshua leads day-to-day sales and marketing team."
+      },
+      {
+        name: "Richard Ampare",
+        title: "Logistics Manager",
+        imageUrl: "/RichardAngel.jpg",
+        bio: "Richard leads day-to-day logistics team."
       }
     ] as TeamMember[]
   }

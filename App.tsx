@@ -11,6 +11,9 @@ import Products from './components/Products';
 import People from './components/People';
 import Contact from './components/Contact';
 import CoffeeImpactArticle from './components/CoffeeImpactArticle';
+import Coffee from './components/Coffee';
+import Faq from './components/Faq';
+import WhatsAppWidget from './components/WhatsAppWidget';
 
 function App() {
   return (
@@ -22,12 +25,15 @@ function App() {
           <Route path="/our-history" element={<OurHistory />} />
           <Route path="/news" element={<NewsApp />} />
           <Route path="/coffee-impact" element={<CoffeeImpactArticle />} />
+          <Route path="/coffee" element={<Coffee />} />
           <Route path="/impact" element={<Impact />} />
           <Route path="/investments" element={<Investments />} />
           <Route path="/products" element={<Products />} />
           <Route path="/people" element={<People />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<Faq />} />
         </Routes>
+        <WhatsAppWidget />
       </div>
     </Router>
   );

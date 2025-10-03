@@ -22,7 +22,7 @@ const navItems = [
   { name: 'Impact', href: '/impact' },
   { name: 'News', href: '/news' },
   { name: 'Contact', href: '/contact' },
-//   { name: 'Careers', href: '#' },
+  { name: 'FAQ', href: '/faq' },
 ];
 
 const LinkedInIcon = () => (
