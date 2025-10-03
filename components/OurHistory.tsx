@@ -21,7 +21,7 @@ const HeroSection: React.FC = () => (
     className="relative w-full min-h-screen flex items-center justify-center text-white bg-[#141d21] pt-40 sm:pt-44 md:pt-48 lg:pt-52" 
     style={{ 
       paddingTop: 'max(10rem, calc(100vw * 0.08))',
-      paddingBottom: 'calc(100vw * 0.05', 
+      paddingBottom: 'calc(100vw * 0.05)', 
     }}
   >
     <div className="absolute inset-0 bg-black opacity-30 z-0"></div>
