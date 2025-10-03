@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import type { CoffeeVariety } from '../types';
 
 interface CoffeeCardProps {
@@ -6,6 +7,12 @@ interface CoffeeCardProps {
 }
 
 const CoffeeCard: React.FC<CoffeeCardProps> = ({ coffee }) => {
+  const navigate = useNavigate();
+
+  const handleInquiry = () => {
+    navigate('/contact');
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 p-5 flex flex-col items-center text-center">
       <img 
@@ -16,7 +23,10 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({ coffee }) => {
       <h3 className="font-bold text-lg text-stone-800">{coffee.name}</h3>
       <p className="text-sm text-gray-500 mb-2">({coffee.type})</p>
       <p className="text-sm text-gray-600 flex-grow mb-4">{coffee.notes}</p>
-      <button className="mt-auto bg-[#b48c5a] text-white font-bold px-8 py-2 rounded-md hover:bg-[#a37d4f] transition-colors duration-300">
+      <button 
+        onClick={handleInquiry}
+        className="mt-auto bg-[#b48c5a] text-white font-bold px-8 py-2 rounded-md hover:bg-[#a37d4f] transition-colors duration-300"
+      >
         Make Inquiries
       </button>
     </div>
